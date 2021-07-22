@@ -37,7 +37,7 @@ namespace Presentacion
             this.txb_precio = new System.Windows.Forms.TextBox();
             this.txb_marca = new System.Windows.Forms.TextBox();
             this.txb_cantidad = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -109,15 +109,15 @@ namespace Presentacion
             this.txb_cantidad.Size = new System.Drawing.Size(207, 20);
             this.txb_cantidad.TabIndex = 7;
             // 
-            // button1
+            // btnGuardar
             // 
-            this.button1.Location = new System.Drawing.Point(261, 322);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Guardar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnGuardar.Location = new System.Drawing.Point(261, 322);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.TabIndex = 8;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // label5
             // 
@@ -136,7 +136,7 @@ namespace Presentacion
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txb_cantidad);
             this.Controls.Add(this.txb_marca);
             this.Controls.Add(this.txb_precio);
@@ -163,7 +163,7 @@ namespace Presentacion
         private System.Windows.Forms.TextBox txb_precio;
         private System.Windows.Forms.TextBox txb_marca;
         private System.Windows.Forms.TextBox txb_cantidad;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Label label5;
     }
 }
