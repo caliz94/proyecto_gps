@@ -186,9 +186,9 @@ namespace Presentacion
             this.label6.Font = new System.Drawing.Font("Verdana", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(83, 171);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(241, 29);
+            this.label6.Size = new System.Drawing.Size(296, 29);
             this.label6.TabIndex = 24;
-            this.label6.Text = "DATOS PRODUCTO";
+            this.label6.Text = "DATOS DEL PRODUCTO";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // errorProvider1
