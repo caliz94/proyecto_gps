@@ -70,12 +70,6 @@
     <Compile Include="frm_contenedor.Designer.cs">
       <DependentUpon>frm_contenedor.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm_login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_login.Designer.cs">
-      <DependentUpon>frm_login.cs</DependentUpon>
-    </Compile>
     <Compile Include="Inventario_Productos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,9 +89,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_contenedor.resx">
       <DependentUpon>frm_contenedor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_login.resx">
-      <DependentUpon>frm_login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventario_Productos.resx">
       <DependentUpon>Inventario_Productos.cs</DependentUpon>

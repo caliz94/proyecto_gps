@@ -21,13 +21,13 @@ namespace Presentacion
         cConexion conex = new cConexion();
         private void iNGRESARToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frm_login login = new frm_login();
-            login.MdiParent = this;
-            login.Show();
-            menuStrip1.Visible = false;
+            //frm_login login = new frm_login();
+            //login.MdiParent = this;
+            //login.Show();
+            //menuStrip1.Visible = false;
 
         }
-        
+
         private void nUEVOPRODUCTOToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //this.Hide();
@@ -71,7 +71,8 @@ namespace Presentacion
                 }
                 else
                 {
-                    lbl_login.Text = "USUARIO NO ENCONTRADO";
+                    lbl_login.Visible = true;
+                    lbl_login.Text = "USUARIO O CONTRASEÑA INVÁLIDOS";
                 }
                 conex.CerrarConex();
             }
@@ -112,6 +113,16 @@ namespace Presentacion
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txb_contraseña_TextChanged(object sender, EventArgs e)
+        {
+            lbl_login.Visible = false;
+        }
+
+        private void txb_usuario_TextChanged(object sender, EventArgs e)
+        {
+            lbl_login.Visible = false;
         }
     }
 }

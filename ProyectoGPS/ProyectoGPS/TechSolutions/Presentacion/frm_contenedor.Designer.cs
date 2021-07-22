@@ -135,15 +135,15 @@ namespace Presentacion
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.panel1.Location = new System.Drawing.Point(209, 74);
+            this.panel1.Location = new System.Drawing.Point(129, 74);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(356, 364);
+            this.panel1.Size = new System.Drawing.Size(436, 364);
             this.panel1.TabIndex = 13;
             // 
             // btnCancelar
             // 
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.Location = new System.Drawing.Point(199, 286);
+            this.btnCancelar.Location = new System.Drawing.Point(233, 304);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 30);
             this.btnCancelar.TabIndex = 4;
@@ -156,7 +156,7 @@ namespace Presentacion
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Cooper Black", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label3.Location = new System.Drawing.Point(27, 25);
+            this.label3.Location = new System.Drawing.Point(67, 25);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(302, 27);
             this.label3.TabIndex = 15;
@@ -167,7 +167,7 @@ namespace Presentacion
             this.lbl_login.AutoSize = true;
             this.lbl_login.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_login.ForeColor = System.Drawing.Color.Red;
-            this.lbl_login.Location = new System.Drawing.Point(71, 185);
+            this.lbl_login.Location = new System.Drawing.Point(52, 200);
             this.lbl_login.Name = "lbl_login";
             this.lbl_login.Size = new System.Drawing.Size(0, 20);
             this.lbl_login.TabIndex = 14;
@@ -175,7 +175,7 @@ namespace Presentacion
             // btnIngresar
             // 
             this.btnIngresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIngresar.Location = new System.Drawing.Point(63, 286);
+            this.btnIngresar.Location = new System.Drawing.Point(97, 304);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(100, 30);
             this.btnIngresar.TabIndex = 3;
@@ -188,7 +188,7 @@ namespace Presentacion
             this.pboxLogin.BackgroundImage = global::Presentacion.Properties.Resources.icons8_user_80;
             this.pboxLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pboxLogin.InitialImage = ((System.Drawing.Image)(resources.GetObject("pboxLogin.InitialImage")));
-            this.pboxLogin.Location = new System.Drawing.Point(122, 65);
+            this.pboxLogin.Location = new System.Drawing.Point(157, 55);
             this.pboxLogin.Name = "pboxLogin";
             this.pboxLogin.Size = new System.Drawing.Size(123, 127);
             this.pboxLogin.TabIndex = 12;
@@ -196,25 +196,27 @@ namespace Presentacion
             // 
             // txb_usuario
             // 
-            this.txb_usuario.Location = new System.Drawing.Point(177, 215);
+            this.txb_usuario.Location = new System.Drawing.Point(211, 233);
             this.txb_usuario.Name = "txb_usuario";
             this.txb_usuario.Size = new System.Drawing.Size(143, 20);
             this.txb_usuario.TabIndex = 1;
+            this.txb_usuario.TextChanged += new System.EventHandler(this.txb_usuario_TextChanged);
             // 
             // txb_contraseña
             // 
-            this.txb_contraseña.Location = new System.Drawing.Point(177, 250);
+            this.txb_contraseña.Location = new System.Drawing.Point(211, 268);
             this.txb_contraseña.Name = "txb_contraseña";
             this.txb_contraseña.PasswordChar = '*';
             this.txb_contraseña.Size = new System.Drawing.Size(143, 20);
             this.txb_contraseña.TabIndex = 2;
+            this.txb_contraseña.TextChanged += new System.EventHandler(this.txb_contraseña_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label2.Location = new System.Drawing.Point(34, 249);
+            this.label2.Location = new System.Drawing.Point(68, 267);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(129, 19);
             this.label2.TabIndex = 9;
@@ -225,7 +227,7 @@ namespace Presentacion
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label1.Location = new System.Drawing.Point(34, 216);
+            this.label1.Location = new System.Drawing.Point(68, 234);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 19);
             this.label1.TabIndex = 8;
