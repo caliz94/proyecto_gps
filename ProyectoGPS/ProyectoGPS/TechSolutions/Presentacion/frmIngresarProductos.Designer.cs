@@ -1,7 +1,7 @@
 ﻿
 namespace Presentacion
 {
-    partial class Inventario_Productos
+    partial class frmIngresarProductos
     {
         /// <summary>
         /// Required designer variable.
@@ -130,7 +130,7 @@ namespace Presentacion
             this.label5.Text = "INGRESAR NUEVO PRODUCTO";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Inventario_Productos
+            // frmIngresarProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -145,7 +145,8 @@ namespace Presentacion
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Inventario_Productos";
+            this.Name = "frmIngresarProductos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Inventario_Productos";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);

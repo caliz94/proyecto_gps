@@ -50,14 +50,14 @@ namespace DATOS
         public void Editar(string NombreProducto, int Cantidad, decimal PrecioUnitario, string Marca, int IdProducto)
         {
             cmd.Connection = conex.AbrirConex();
-            cmd.CommandText = "Sp_OperacionProductos";
+            cmd.CommandText = "SpActualizarProductos";
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@Operacion", SqlDbType.VarChar, 2).Value = "U";
+            cmd.Parameters.AddWithValue("@IdProducto", IdProducto);
             cmd.Parameters.AddWithValue("@NombreProducto", NombreProducto);
             cmd.Parameters.AddWithValue("@Cantidad", Cantidad);
             cmd.Parameters.AddWithValue("@PrecioUnitario", PrecioUnitario);
             cmd.Parameters.AddWithValue("@Marca", Marca);
-            cmd.Parameters.AddWithValue("@IdProducto", IdProducto);
+            
             cmd.ExecuteNonQuery();
             cmd.Parameters.Clear();
             cmd.Connection = conex.CerrarConex();

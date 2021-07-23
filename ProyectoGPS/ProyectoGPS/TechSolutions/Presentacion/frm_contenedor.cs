@@ -31,7 +31,7 @@ namespace Presentacion
         private void nUEVOPRODUCTOToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //this.Hide();
-            Inventario_Productos produc = new Inventario_Productos();
+            frmIngresarProductos produc = new frmIngresarProductos();
             produc.MdiParent = frm_contenedor.ActiveForm;
             produc.Show();
         }

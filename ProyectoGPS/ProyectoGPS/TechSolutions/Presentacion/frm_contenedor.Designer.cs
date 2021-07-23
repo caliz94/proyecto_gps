@@ -44,16 +44,19 @@ namespace Presentacion
             this.label3 = new System.Windows.Forms.Label();
             this.lbl_login = new System.Windows.Forms.Label();
             this.btnIngresar = new System.Windows.Forms.Button();
-            this.pboxLogin = new System.Windows.Forms.PictureBox();
             this.txb_usuario = new System.Windows.Forms.TextBox();
             this.txb_contraseña = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.errorP = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pboxLogin = new System.Windows.Forms.PictureBox();
+            this.pnlRight = new System.Windows.Forms.Panel();
+            this.lblFoot = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pboxLogin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxLogin)).BeginInit();
+            this.pnlRight.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -183,17 +186,6 @@ namespace Presentacion
             this.btnIngresar.UseVisualStyleBackColor = true;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
-            // pboxLogin
-            // 
-            this.pboxLogin.BackgroundImage = global::Presentacion.Properties.Resources.icons8_user_80;
-            this.pboxLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pboxLogin.InitialImage = ((System.Drawing.Image)(resources.GetObject("pboxLogin.InitialImage")));
-            this.pboxLogin.Location = new System.Drawing.Point(157, 55);
-            this.pboxLogin.Name = "pboxLogin";
-            this.pboxLogin.Size = new System.Drawing.Size(123, 127);
-            this.pboxLogin.TabIndex = 12;
-            this.pboxLogin.TabStop = false;
-            // 
             // txb_usuario
             // 
             this.txb_usuario.Location = new System.Drawing.Point(211, 233);
@@ -237,11 +229,45 @@ namespace Presentacion
             // 
             this.errorP.ContainerControl = this;
             // 
+            // pboxLogin
+            // 
+            this.pboxLogin.BackgroundImage = global::Presentacion.Properties.Resources.icons8_user_80;
+            this.pboxLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pboxLogin.InitialImage = ((System.Drawing.Image)(resources.GetObject("pboxLogin.InitialImage")));
+            this.pboxLogin.Location = new System.Drawing.Point(157, 55);
+            this.pboxLogin.Name = "pboxLogin";
+            this.pboxLogin.Size = new System.Drawing.Size(123, 127);
+            this.pboxLogin.TabIndex = 12;
+            this.pboxLogin.TabStop = false;
+            // 
+            // pnlRight
+            // 
+            this.pnlRight.BackColor = System.Drawing.Color.SandyBrown;
+            this.pnlRight.Controls.Add(this.lblFoot);
+            this.pnlRight.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlRight.Location = new System.Drawing.Point(0, 414);
+            this.pnlRight.Name = "pnlRight";
+            this.pnlRight.Size = new System.Drawing.Size(800, 36);
+            this.pnlRight.TabIndex = 16;
+            // 
+            // lblFoot
+            // 
+            this.lblFoot.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblFoot.AutoSize = true;
+            this.lblFoot.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFoot.Location = new System.Drawing.Point(273, 10);
+            this.lblFoot.Name = "lblFoot";
+            this.lblFoot.Size = new System.Drawing.Size(255, 17);
+            this.lblFoot.TabIndex = 0;
+            this.lblFoot.Text = "Gestión de Proyectos de Software";
+            this.lblFoot.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frm_contenedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pnlRight);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -256,8 +282,10 @@ namespace Presentacion
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pboxLogin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxLogin)).EndInit();
+            this.pnlRight.ResumeLayout(false);
+            this.pnlRight.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -284,5 +312,7 @@ namespace Presentacion
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ErrorProvider errorP;
+        private System.Windows.Forms.Panel pnlRight;
+        private System.Windows.Forms.Label lblFoot;
     }
 }

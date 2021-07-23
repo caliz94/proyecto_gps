@@ -24,7 +24,7 @@ namespace LOGICA
             _Product_dal.insertar(NombreProducto,Convert.ToInt32(Cantidad),Convert.ToDecimal(PrecioUnitario), Marca);
         }
 
-        public void Editar(string NombreProducto, int Cantidad, decimal PrecioUnitario, string Marca, int IdProducto)
+        public void Editar(string NombreProducto, int Cantidad, decimal PrecioUnitario, string Marca,int IdProducto)
         {
             _Product_dal.Editar(NombreProducto,Cantidad,PrecioUnitario,Marca,IdProducto);
         }

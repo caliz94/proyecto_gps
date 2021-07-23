@@ -11,9 +11,9 @@ using LOGICA;
 
 namespace Presentacion
 {
-    public partial class Inventario_Productos : Form
+    public partial class frmIngresarProductos : Form
     {
-        public Inventario_Productos()
+        public frmIngresarProductos()
         {
             InitializeComponent();
         }
