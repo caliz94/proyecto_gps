@@ -68,9 +68,9 @@ namespace DATOS
         public void Eliminar(int IdProducto)
         {
             cmd.Connection = conex.AbrirConex();
-            cmd.CommandText = "Sp_OperacionProductos";
+            cmd.CommandText = "SpEliminarProducto";
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.Add("@Operacion", SqlDbType.VarChar, 2).Value = "D";
+            //cmd.Parameters.Add("@Operacion", SqlDbType.VarChar, 2).Value = "D";
             cmd.Parameters.AddWithValue("@IdProducto", IdProducto);
             cmd.ExecuteNonQuery();
             cmd.Parameters.Clear();

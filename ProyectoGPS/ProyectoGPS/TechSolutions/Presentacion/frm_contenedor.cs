@@ -98,9 +98,9 @@ namespace Presentacion
 
         private void iNVENTARIOToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmProductos FormProducto = new frmProductos();
-            FormProducto.MdiParent = frm_contenedor.ActiveForm;
-            FormProducto.Show();
+            frmVenta FormVenta = new frmVenta();
+            FormVenta.MdiParent = frm_contenedor.ActiveForm;
+            FormVenta.Show();
         }
 
         private void eDITARPRODUCTOToolStripMenuItem_Click(object sender, EventArgs e)
@@ -123,6 +123,20 @@ namespace Presentacion
         private void txb_usuario_TextChanged(object sender, EventArgs e)
         {
             lbl_login.Visible = false;
+        }
+
+        private void eLIMINARPRODUCTOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmEliminar formEliminar = new frmEliminar();
+            formEliminar.MdiParent = frm_contenedor.ActiveForm;
+            formEliminar.Show();
+        }
+
+        private void mENUToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmInventarioProducto FormProducto = new frmInventarioProducto();
+            FormProducto.MdiParent = frm_contenedor.ActiveForm;
+            FormProducto.Show();
         }
     }
 }

@@ -52,17 +52,23 @@
     <Compile Include="frmEditar.Designer.cs">
       <DependentUpon>frmEditar.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMenu.cs">
+    <Compile Include="frmEliminar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMenu.Designer.cs">
-      <DependentUpon>frmMenu.cs</DependentUpon>
+    <Compile Include="frmEliminar.Designer.cs">
+      <DependentUpon>frmEliminar.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmProductos.cs">
+    <Compile Include="frmVenta.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmProductos.Designer.cs">
-      <DependentUpon>frmProductos.cs</DependentUpon>
+    <Compile Include="frmVenta.Designer.cs">
+      <DependentUpon>frmVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInventarioProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInventarioProducto.Designer.cs">
+      <DependentUpon>frmInventarioProducto.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_contenedor.cs">
       <SubType>Form</SubType>
@@ -81,11 +87,14 @@
     <EmbeddedResource Include="frmEditar.resx">
       <DependentUpon>frmEditar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMenu.resx">
-      <DependentUpon>frmMenu.cs</DependentUpon>
+    <EmbeddedResource Include="frmEliminar.resx">
+      <DependentUpon>frmEliminar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmProductos.resx">
-      <DependentUpon>frmProductos.cs</DependentUpon>
+    <EmbeddedResource Include="frmVenta.resx">
+      <DependentUpon>frmVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInventarioProducto.resx">
+      <DependentUpon>frmInventarioProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_contenedor.resx">
       <DependentUpon>frm_contenedor.cs</DependentUpon>

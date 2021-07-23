@@ -37,25 +37,25 @@ namespace Presentacion
             this.eDITARPRODUCTOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eLIMINARPRODUCTOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iNVENTARIOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bUSCARPRODUCTOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sALIRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.lbl_login = new System.Windows.Forms.Label();
             this.btnIngresar = new System.Windows.Forms.Button();
+            this.pboxLogin = new System.Windows.Forms.PictureBox();
             this.txb_usuario = new System.Windows.Forms.TextBox();
             this.txb_contraseña = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.errorP = new System.Windows.Forms.ErrorProvider(this.components);
-            this.pboxLogin = new System.Windows.Forms.PictureBox();
             this.pnlRight = new System.Windows.Forms.Panel();
             this.lblFoot = new System.Windows.Forms.Label();
+            this.lISTADODEPRODUCTOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxLogin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorP)).BeginInit();
             this.pnlRight.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,7 +66,6 @@ namespace Presentacion
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mENUToolStripMenuItem,
             this.iNVENTARIOToolStripMenuItem,
-            this.bUSCARPRODUCTOToolStripMenuItem,
             this.sALIRToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -79,43 +78,40 @@ namespace Presentacion
             this.mENUToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nUEVOPRODUCTOToolStripMenuItem,
             this.eDITARPRODUCTOToolStripMenuItem,
-            this.eLIMINARPRODUCTOToolStripMenuItem});
+            this.eLIMINARPRODUCTOToolStripMenuItem,
+            this.lISTADODEPRODUCTOSToolStripMenuItem});
             this.mENUToolStripMenuItem.Name = "mENUToolStripMenuItem";
-            this.mENUToolStripMenuItem.Size = new System.Drawing.Size(67, 25);
-            this.mENUToolStripMenuItem.Text = "MENU";
+            this.mENUToolStripMenuItem.Size = new System.Drawing.Size(111, 25);
+            this.mENUToolStripMenuItem.Text = "INVENTARIO";
+            this.mENUToolStripMenuItem.Click += new System.EventHandler(this.mENUToolStripMenuItem_Click);
             // 
             // nUEVOPRODUCTOToolStripMenuItem
             // 
             this.nUEVOPRODUCTOToolStripMenuItem.Name = "nUEVOPRODUCTOToolStripMenuItem";
-            this.nUEVOPRODUCTOToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
+            this.nUEVOPRODUCTOToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
             this.nUEVOPRODUCTOToolStripMenuItem.Text = "NUEVO PRODUCTO";
             this.nUEVOPRODUCTOToolStripMenuItem.Click += new System.EventHandler(this.nUEVOPRODUCTOToolStripMenuItem_Click);
             // 
             // eDITARPRODUCTOToolStripMenuItem
             // 
             this.eDITARPRODUCTOToolStripMenuItem.Name = "eDITARPRODUCTOToolStripMenuItem";
-            this.eDITARPRODUCTOToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
+            this.eDITARPRODUCTOToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
             this.eDITARPRODUCTOToolStripMenuItem.Text = "EDITAR PRODUCTO";
             this.eDITARPRODUCTOToolStripMenuItem.Click += new System.EventHandler(this.eDITARPRODUCTOToolStripMenuItem_Click);
             // 
             // eLIMINARPRODUCTOToolStripMenuItem
             // 
             this.eLIMINARPRODUCTOToolStripMenuItem.Name = "eLIMINARPRODUCTOToolStripMenuItem";
-            this.eLIMINARPRODUCTOToolStripMenuItem.Size = new System.Drawing.Size(236, 26);
+            this.eLIMINARPRODUCTOToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
             this.eLIMINARPRODUCTOToolStripMenuItem.Text = "ELIMINAR PRODUCTO";
+            this.eLIMINARPRODUCTOToolStripMenuItem.Click += new System.EventHandler(this.eLIMINARPRODUCTOToolStripMenuItem_Click);
             // 
             // iNVENTARIOToolStripMenuItem
             // 
             this.iNVENTARIOToolStripMenuItem.Name = "iNVENTARIOToolStripMenuItem";
-            this.iNVENTARIOToolStripMenuItem.Size = new System.Drawing.Size(111, 25);
-            this.iNVENTARIOToolStripMenuItem.Text = "INVENTARIO";
+            this.iNVENTARIOToolStripMenuItem.Size = new System.Drawing.Size(78, 25);
+            this.iNVENTARIOToolStripMenuItem.Text = "VENTAS";
             this.iNVENTARIOToolStripMenuItem.Click += new System.EventHandler(this.iNVENTARIOToolStripMenuItem_Click);
-            // 
-            // bUSCARPRODUCTOToolStripMenuItem
-            // 
-            this.bUSCARPRODUCTOToolStripMenuItem.Name = "bUSCARPRODUCTOToolStripMenuItem";
-            this.bUSCARPRODUCTOToolStripMenuItem.Size = new System.Drawing.Size(167, 25);
-            this.bUSCARPRODUCTOToolStripMenuItem.Text = "BUSCAR PRODUCTO";
             // 
             // sALIRToolStripMenuItem
             // 
@@ -186,6 +182,17 @@ namespace Presentacion
             this.btnIngresar.UseVisualStyleBackColor = true;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
+            // pboxLogin
+            // 
+            this.pboxLogin.BackgroundImage = global::Presentacion.Properties.Resources.icons8_user_80;
+            this.pboxLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pboxLogin.InitialImage = ((System.Drawing.Image)(resources.GetObject("pboxLogin.InitialImage")));
+            this.pboxLogin.Location = new System.Drawing.Point(157, 55);
+            this.pboxLogin.Name = "pboxLogin";
+            this.pboxLogin.Size = new System.Drawing.Size(123, 127);
+            this.pboxLogin.TabIndex = 12;
+            this.pboxLogin.TabStop = false;
+            // 
             // txb_usuario
             // 
             this.txb_usuario.Location = new System.Drawing.Point(211, 233);
@@ -229,17 +236,6 @@ namespace Presentacion
             // 
             this.errorP.ContainerControl = this;
             // 
-            // pboxLogin
-            // 
-            this.pboxLogin.BackgroundImage = global::Presentacion.Properties.Resources.icons8_user_80;
-            this.pboxLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pboxLogin.InitialImage = ((System.Drawing.Image)(resources.GetObject("pboxLogin.InitialImage")));
-            this.pboxLogin.Location = new System.Drawing.Point(157, 55);
-            this.pboxLogin.Name = "pboxLogin";
-            this.pboxLogin.Size = new System.Drawing.Size(123, 127);
-            this.pboxLogin.TabIndex = 12;
-            this.pboxLogin.TabStop = false;
-            // 
             // pnlRight
             // 
             this.pnlRight.BackColor = System.Drawing.Color.SandyBrown;
@@ -262,6 +258,12 @@ namespace Presentacion
             this.lblFoot.Text = "Gestión de Proyectos de Software";
             this.lblFoot.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lISTADODEPRODUCTOSToolStripMenuItem
+            // 
+            this.lISTADODEPRODUCTOSToolStripMenuItem.Name = "lISTADODEPRODUCTOSToolStripMenuItem";
+            this.lISTADODEPRODUCTOSToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
+            this.lISTADODEPRODUCTOSToolStripMenuItem.Text = "LISTADO DE PRODUCTOS";
+            // 
             // frm_contenedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -282,8 +284,8 @@ namespace Presentacion
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxLogin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorP)).EndInit();
             this.pnlRight.ResumeLayout(false);
             this.pnlRight.PerformLayout();
             this.ResumeLayout(false);
@@ -299,7 +301,6 @@ namespace Presentacion
         private System.Windows.Forms.ToolStripMenuItem eDITARPRODUCTOToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eLIMINARPRODUCTOToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem iNVENTARIOToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bUSCARPRODUCTOToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sALIRToolStripMenuItem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnCancelar;
@@ -314,5 +315,6 @@ namespace Presentacion
         private System.Windows.Forms.ErrorProvider errorP;
         private System.Windows.Forms.Panel pnlRight;
         private System.Windows.Forms.Label lblFoot;
+        private System.Windows.Forms.ToolStripMenuItem lISTADODEPRODUCTOSToolStripMenuItem;
     }
 }

@@ -12,9 +12,9 @@ using DATOS;
 
 namespace Presentacion
 {
-    public partial class frmProductos : Form
+    public partial class frmInventarioProducto : Form
     {
-        public frmProductos()
+        public frmInventarioProducto()
         {
             InitializeComponent();
         }
@@ -24,6 +24,7 @@ namespace Presentacion
         public void Mostrar()
         {
             dataGridView1.DataSource = lstProducto.tbMostrarInventario();
+            dataGridView1.Columns["IdProducto"].Visible = false;
         }
 
         private void frmProductos_Load(object sender, EventArgs e)
