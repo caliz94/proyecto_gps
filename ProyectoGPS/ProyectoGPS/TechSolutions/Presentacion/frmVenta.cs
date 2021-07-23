@@ -53,7 +53,7 @@ namespace Presentacion
                 cmb_Producto.Text,
                 txb_Cantidad.Text,
                 txb_IVA.Text,
-                txb_Descuento.Text,
+                txb_Descuento.Text
                 //cmb_Producto.Tag
                 //Precio()
             
