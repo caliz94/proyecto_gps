@@ -89,35 +89,35 @@ namespace Presentacion
             this.txb_producto.Location = new System.Drawing.Point(173, 135);
             this.txb_producto.Name = "txb_producto";
             this.txb_producto.Size = new System.Drawing.Size(207, 20);
-            this.txb_producto.TabIndex = 4;
+            this.txb_producto.TabIndex = 2;
             // 
             // txb_precio
             // 
             this.txb_precio.Location = new System.Drawing.Point(173, 206);
             this.txb_precio.Name = "txb_precio";
             this.txb_precio.Size = new System.Drawing.Size(207, 20);
-            this.txb_precio.TabIndex = 5;
+            this.txb_precio.TabIndex = 4;
             // 
             // txb_marca
             // 
             this.txb_marca.Location = new System.Drawing.Point(173, 244);
             this.txb_marca.Name = "txb_marca";
             this.txb_marca.Size = new System.Drawing.Size(207, 20);
-            this.txb_marca.TabIndex = 6;
+            this.txb_marca.TabIndex = 5;
             // 
             // txb_cantidad
             // 
             this.txb_cantidad.Location = new System.Drawing.Point(173, 171);
             this.txb_cantidad.Name = "txb_cantidad";
             this.txb_cantidad.Size = new System.Drawing.Size(207, 20);
-            this.txb_cantidad.TabIndex = 7;
+            this.txb_cantidad.TabIndex = 3;
             // 
             // btnGuardar
             // 
             this.btnGuardar.Location = new System.Drawing.Point(397, 101);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(138, 80);
-            this.btnGuardar.TabIndex = 8;
+            this.btnGuardar.TabIndex = 7;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -138,7 +138,7 @@ namespace Presentacion
             this.txb_CodProducto.Location = new System.Drawing.Point(173, 101);
             this.txb_CodProducto.Name = "txb_CodProducto";
             this.txb_CodProducto.Size = new System.Drawing.Size(207, 20);
-            this.txb_CodProducto.TabIndex = 11;
+            this.txb_CodProducto.TabIndex = 1;
             // 
             // label6
             // 
@@ -178,6 +178,8 @@ namespace Presentacion
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmIngresarProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventario_Productos";

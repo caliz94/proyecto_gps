@@ -61,7 +61,7 @@ namespace Presentacion
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.menuStrip1.BackColor = System.Drawing.Color.SandyBrown;
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.menuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -123,7 +123,7 @@ namespace Presentacion
             // 
             // sALIRToolStripMenuItem
             // 
-            this.sALIRToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.sALIRToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
             this.sALIRToolStripMenuItem.Name = "sALIRToolStripMenuItem";
             this.sALIRToolStripMenuItem.Size = new System.Drawing.Size(53, 25);
             this.sALIRToolStripMenuItem.Text = "Salir";

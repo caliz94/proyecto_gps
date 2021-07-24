@@ -24,6 +24,7 @@ namespace Presentacion
             txb_marca.Text = string.Empty;
             txb_producto.Text = string.Empty;
             txb_cantidad.Text = string.Empty;
+            txb_CodProducto.Text = string.Empty;
         }
 
         cProducto cprod = new cProducto();
