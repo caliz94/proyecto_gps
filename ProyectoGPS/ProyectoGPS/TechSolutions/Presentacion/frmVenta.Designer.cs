@@ -31,6 +31,7 @@ namespace Presentacion
         {
             this.components = new System.ComponentModel.Container();
             this.pn_Bottom = new System.Windows.Forms.Panel();
+            this.lblMensaje = new System.Windows.Forms.Label();
             this.btnPagar = new System.Windows.Forms.Button();
             this.txb_TotCompra = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -50,7 +51,7 @@ namespace Presentacion
             this.txb_Cliente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txb_Producto = new System.Windows.Forms.TextBox();
             this.txb_Descuento = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txb_Cantidad = new System.Windows.Forms.TextBox();
@@ -65,7 +66,6 @@ namespace Presentacion
             this.panel1Grid = new System.Windows.Forms.Panel();
             this.dgvCompra = new System.Windows.Forms.DataGridView();
             this.errorP = new System.Windows.Forms.ErrorProvider(this.components);
-            this.lblMensaje = new System.Windows.Forms.Label();
             this.pn_Bottom.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -93,6 +93,19 @@ namespace Presentacion
             this.pn_Bottom.Name = "pn_Bottom";
             this.pn_Bottom.Size = new System.Drawing.Size(1239, 59);
             this.pn_Bottom.TabIndex = 0;
+            // 
+            // lblMensaje
+            // 
+            this.lblMensaje.AutoSize = true;
+            this.lblMensaje.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblMensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensaje.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblMensaje.Location = new System.Drawing.Point(815, 22);
+            this.lblMensaje.Name = "lblMensaje";
+            this.lblMensaje.Size = new System.Drawing.Size(282, 20);
+            this.lblMensaje.TabIndex = 22;
+            this.lblMensaje.Text = "Compra Realizada Satisfactoriamente.";
+            this.lblMensaje.Visible = false;
             // 
             // btnPagar
             // 
@@ -265,7 +278,7 @@ namespace Presentacion
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.txb_Producto);
             this.groupBox2.Controls.Add(this.txb_Descuento);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.txb_Cantidad);
@@ -281,13 +294,13 @@ namespace Presentacion
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "CARGA DE PRODUCTOS";
             // 
-            // textBox1
+            // txb_Producto
             // 
-            this.textBox1.Location = new System.Drawing.Point(111, 21);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(260, 20);
-            this.textBox1.TabIndex = 15;
-            this.textBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyUp);
+            this.txb_Producto.Location = new System.Drawing.Point(111, 21);
+            this.txb_Producto.Name = "txb_Producto";
+            this.txb_Producto.Size = new System.Drawing.Size(260, 20);
+            this.txb_Producto.TabIndex = 15;
+            this.txb_Producto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txb_Producto_KeyUp);
             // 
             // txb_Descuento
             // 
@@ -304,9 +317,9 @@ namespace Presentacion
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(6, 54);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(59, 13);
+            this.label8.Size = new System.Drawing.Size(76, 13);
             this.label8.TabIndex = 11;
-            this.label8.Text = "Descuento";
+            this.label8.Text = "Descuento (%)";
             // 
             // txb_Cantidad
             // 
@@ -314,6 +327,7 @@ namespace Presentacion
             this.txb_Cantidad.Name = "txb_Cantidad";
             this.txb_Cantidad.Size = new System.Drawing.Size(122, 20);
             this.txb_Cantidad.TabIndex = 8;
+            this.txb_Cantidad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txb_Cantidad_KeyUp);
             // 
             // label9
             // 
@@ -340,16 +354,16 @@ namespace Presentacion
             this.txb_IVA.ReadOnly = true;
             this.txb_IVA.Size = new System.Drawing.Size(122, 20);
             this.txb_IVA.TabIndex = 5;
-            this.txb_IVA.Text = "0.15";
+            this.txb_IVA.Text = "15";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(412, 54);
+            this.label6.Location = new System.Drawing.Point(396, 54);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(33, 13);
+            this.label6.Size = new System.Drawing.Size(50, 13);
             this.label6.TabIndex = 4;
-            this.label6.Text = "I.V.A.";
+            this.label6.Text = "I.V.A. (%)";
             // 
             // btnDescargar
             // 
@@ -418,19 +432,6 @@ namespace Presentacion
             // 
             this.errorP.ContainerControl = this;
             // 
-            // lblMensaje
-            // 
-            this.lblMensaje.AutoSize = true;
-            this.lblMensaje.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblMensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMensaje.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblMensaje.Location = new System.Drawing.Point(815, 22);
-            this.lblMensaje.Name = "lblMensaje";
-            this.lblMensaje.Size = new System.Drawing.Size(282, 20);
-            this.lblMensaje.TabIndex = 22;
-            this.lblMensaje.Text = "Compra Realizada Satisfactoriamente.";
-            this.lblMensaje.Visible = false;
-            // 
             // frmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -498,7 +499,7 @@ namespace Presentacion
         private System.Windows.Forms.TextBox txb_Subtotal;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox txb_Cantidad;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txb_Producto;
         private System.Windows.Forms.Panel panel1Grid;
         private System.Windows.Forms.DataGridView dgvCompra;
         private System.Windows.Forms.ErrorProvider errorP;

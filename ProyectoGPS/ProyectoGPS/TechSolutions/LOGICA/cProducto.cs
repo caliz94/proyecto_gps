@@ -24,9 +24,9 @@ namespace LOGICA
             _Product_dal.insertar(CodProducto,NombreProducto,Convert.ToInt32(Cantidad),Convert.ToDecimal(PrecioUnitario), Marca);
         }
 
-        public void grabarVenta(int IdProducto, int Cantidad, decimal SubTotal, decimal Descuento, decimal IVA, decimal Total)
+        public void grabarVenta(int IdProducto, string NombreCliente, int Cantidad, decimal SubTotal, decimal Descuento, decimal IVA, decimal Total)
         {
-            _Product_dal.grabarVenta(IdProducto, Cantidad, SubTotal, Descuento, IVA, Total);
+            _Product_dal.grabarVenta(IdProducto, NombreCliente, Cantidad, SubTotal, Descuento, IVA, Total);
         }
 
         public void Editar(string NombreProducto, int Cantidad, decimal PrecioUnitario, string Marca,int IdProducto)

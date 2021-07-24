@@ -47,11 +47,12 @@ namespace DATOS
             cmd.Connection = conex.CerrarConex();
         }
         // GRABAR VENTA
-        public void grabarVenta(int IdProducto, int Cantidad, decimal SubTotal, decimal Descuento, decimal IVA, decimal Total)
+        public void grabarVenta(int IdProducto, string NombreCliente, int Cantidad, decimal SubTotal, decimal Descuento, decimal IVA, decimal Total)
         {
             cmd.Connection = conex.AbrirConex();
             cmd.CommandText = "Sp_GrabarVenta";
             cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@NombreCliente", NombreCliente);
             cmd.Parameters.AddWithValue("@IdProducto", IdProducto);
             cmd.Parameters.AddWithValue("@Cantidad", Cantidad);
             cmd.Parameters.AddWithValue("@SubTotal", SubTotal);

@@ -18,18 +18,25 @@ namespace Presentacion
         {
             InitializeComponent();
         }
+
+
+        // Declaración de Variables Globales
         public static string nombreProducto = "", cantidad = "", precioUnitario = "", subTotal = "", descuento = "", iva = "", total = "", idProducto = "";
+        public static int i = 500;
+        public static int x = 0;
+        public static string[] _idproducto = new string[i];
+        public static string[] _cantidad = new string[i];
 
+
+        // Instanciar Conexión a la Base de Datos
+        private cConexion conex = new cConexion();
+
+
+        // Instanciar Objeto de la Capa de Datos
         private Producto_DAL _ProductoDAL = new Producto_DAL();
-       
 
-        private void btnDescargar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
-        public cConexion conex = new cConexion();
-
+        // Inicialización del Formulario y Controles
         private void frmVenta_Load(object sender, EventArgs e)
         {
             dateTimePicker1.Value = DateTime.Now;
@@ -51,32 +58,56 @@ namespace Presentacion
             txb_TotCompra.Text = "0";
         }
 
-        //string _idproducto[] = new string[];
+
+        // Programación de los componentes
+        private void txb_Cantidad_KeyUp(object sender, KeyEventArgs e)
+        {
+            txb_IVA.Enabled = true;
+            txb_IVA.ReadOnly = false;
+            txb_Descuento.Enabled = true;
+            txb_Descuento.ReadOnly = false;
+        }
+
+
+        private void btnDescargar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+
         private void btnCargar_Click(object sender, EventArgs e)
         {
             if (txb_Cliente.Text == string.Empty)
                 errorP.SetError(txb_Cliente, "Debe Ingresar el nombre del Cliente");
+            else if (txb_Cantidad.Text == string.Empty)
+                errorP.SetError(txb_Cliente, "Debe Ingresar la cantidad de producto");
             else if (Convert.ToInt32(txb_Cantidad.Text) >= 1)
             {
+                dgvCompra.Rows.Add
+                    (
+                        idProducto = dgvCarrito.CurrentRow.Cells["IdProducto"].Value.ToString(),
+                        //Nombre Producto
+                        nombreProducto = dgvCarrito.CurrentRow.Cells["NombreProducto"].Value.ToString(),
+                        //Cantidad
+                         cantidad = txb_Cantidad.Text.ToString(),
+                        //Precio Unitario
+                        precioUnitario = dgvCarrito.CurrentRow.Cells["PrecioUnitario"].Value.ToString(),
+                        //Sub-Total
+                        subTotal = ((Convert.ToInt32(cantidad)) * (Convert.ToDouble(precioUnitario))).ToString(),
+                        //Descuento
+                        descuento = (Convert.ToDouble(subTotal) * (Convert.ToDouble(txb_Descuento.Text)/100)).ToString(),
+                        //IVA
+                        iva = ((Convert.ToDouble(subTotal) - Convert.ToDouble(descuento ))*(Convert.ToInt32(txb_IVA.Text))/100).ToString(),
+                        //Total
+                        total = ((Convert.ToDouble(subTotal) - Convert.ToDouble(descuento)) + Convert.ToDouble(iva)).ToString()
+                    );
 
-                dgvCompra.Rows.Add(
-           idProducto = dgvCarrito.CurrentRow.Cells["IdProducto"].Value.ToString(),
-           //Nombre Producto
-           nombreProducto = dgvCarrito.CurrentRow.Cells["NombreProducto"].Value.ToString(),
-           //Cantidad
-           cantidad = txb_Cantidad.Text.ToString(),
-           //Precio Unitario
-           precioUnitario = dgvCarrito.CurrentRow.Cells["PrecioUnitario"].Value.ToString(),
-           //Sub-Total
-           subTotal = ((Convert.ToDouble(txb_Cantidad.Text)) * (Convert.ToDouble(dgvCarrito.CurrentRow.Cells["PrecioUnitario"].Value.ToString()))).ToString(),
-           //Descuento
-           descuento = (((Convert.ToDouble(txb_Cantidad.Text)) * (Convert.ToDouble(dgvCarrito.CurrentRow.Cells["PrecioUnitario"].Value.ToString()))) * Convert.ToDouble(txb_Descuento.Text)).ToString(),
-           //IVA
-           iva = (((((Convert.ToDouble(txb_Cantidad.Text)) * (Convert.ToDouble(dgvCarrito.CurrentRow.Cells["PrecioUnitario"].Value.ToString()))) - ((Convert.ToDouble(txb_Cantidad.Text)) * (Convert.ToDouble(dgvCarrito.CurrentRow.Cells["PrecioUnitario"].Value.ToString()))) * Convert.ToDouble(txb_Descuento.Text))) * Convert.ToDouble(txb_IVA.Text)).ToString(),
-           //Total
-           total = ((((Convert.ToDouble(txb_Cantidad.Text)) * (Convert.ToDouble(dgvCarrito.CurrentRow.Cells["PrecioUnitario"].Value.ToString()))) - ((Convert.ToDouble(txb_Cantidad.Text)) * (Convert.ToDouble(dgvCarrito.CurrentRow.Cells["PrecioUnitario"].Value.ToString()))) * Convert.ToDouble(txb_Descuento.Text)) + ((((Convert.ToDouble(txb_Cantidad.Text)) * (Convert.ToDouble(dgvCarrito.CurrentRow.Cells["PrecioUnitario"].Value.ToString()))) - ((Convert.ToDouble(txb_Cantidad.Text)) * (Convert.ToDouble(dgvCarrito.CurrentRow.Cells["PrecioUnitario"].Value.ToString()))) * Convert.ToDouble(txb_Descuento.Text))) * Convert.ToDouble(txb_IVA.Text)).ToString()
-           );
+                // Se almacenan los datos en el arreglo para grabar la venta
+                _idproducto[x] = idProducto;
 
+                _cantidad[x] = Convert.ToString(cantidad);
+
+                // Se sumarizan los subtotales y se envian los valores
                 txb_Subtotal.Text = ((Convert.ToDouble(txb_Subtotal.Text)) + (Convert.ToDouble(subTotal))).ToString();
 
                 txb_TotDescuento.Text = ((Convert.ToDouble(txb_TotDescuento.Text)) + (Convert.ToDouble(descuento))).ToString();
@@ -86,17 +117,25 @@ namespace Presentacion
                 txb_TotCompra.Text = ((Convert.ToDouble(txb_TotCompra.Text)) + (Convert.ToDouble(total))).ToString();
 
                 txb_Cantidad.Text = "0";
+                txb_Descuento.Text = "0";
+                txb_IVA.Text = "15";
+
+                // Se incrementa la variable para capturar la cantidad de articulos
+                x = x + 1;
             }
            else
             {
+                // Mensaje de validación de cantidad de producto
                 MessageBox.Show("Favor digite la cantidad del Producto","Información",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
+           
         }
 
-        private void textBox1_KeyUp(object sender, KeyEventArgs e)
+
+        private void txb_Producto_KeyUp(object sender, KeyEventArgs e)
         {
             conex.AbrirConex();
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Producto WHERE NombreProducto LIKE ('%"+textBox1.Text+"%')", conex.AbrirConex());
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Producto WHERE NombreProducto LIKE ('%" + txb_Producto.Text + "%')", conex.AbrirConex());
             cmd.CommandType = CommandType.Text;
             cmd.ExecuteNonQuery();
 
@@ -111,18 +150,17 @@ namespace Presentacion
             dgvCarrito.Columns["Cantidad"].HeaderText = "Cantidad en Existencia";
             dgvCarrito.Columns["NombreProducto"].HeaderText = "Nombre del Producto";
             conex.CerrarConex();
-
-
-
         }
+
 
         private void btnPagar_Click(object sender, EventArgs e)
         {
-            for (int fila = 0; fila <= dgvCompra.Rows.Count - 1; fila++)
+            for (int fila = 0; fila < x; fila++)
             {
                 _ProductoDAL.grabarVenta(
-                    Convert.ToInt32(idProducto),
-                    Convert.ToInt32(cantidad),
+                    Convert.ToInt32(_idproducto[fila]),
+                    txb_Cliente.Text.ToString(),
+                    Convert.ToInt32(_cantidad[fila]),
                     Convert.ToDecimal(subTotal),
                     Convert.ToDecimal(descuento),
                     Convert.ToDecimal(iva),
