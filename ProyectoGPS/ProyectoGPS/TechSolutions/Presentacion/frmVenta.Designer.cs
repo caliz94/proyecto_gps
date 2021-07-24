@@ -29,6 +29,7 @@ namespace Presentacion
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pn_Bottom = new System.Windows.Forms.Panel();
             this.btnPagar = new System.Windows.Forms.Button();
             this.txb_TotCompra = new System.Windows.Forms.TextBox();
@@ -37,7 +38,7 @@ namespace Presentacion
             this.label11 = new System.Windows.Forms.Label();
             this.txb_TotIVA = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txb_Subtotal = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -63,6 +64,7 @@ namespace Presentacion
             this.dgvCarrito = new System.Windows.Forms.DataGridView();
             this.panel1Grid = new System.Windows.Forms.Panel();
             this.dgvCompra = new System.Windows.Forms.DataGridView();
+            this.errorP = new System.Windows.Forms.ErrorProvider(this.components);
             this.pn_Bottom.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -70,6 +72,7 @@ namespace Presentacion
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrito)).BeginInit();
             this.panel1Grid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompra)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorP)).BeginInit();
             this.SuspendLayout();
             // 
             // pn_Bottom
@@ -81,7 +84,7 @@ namespace Presentacion
             this.pn_Bottom.Controls.Add(this.label11);
             this.pn_Bottom.Controls.Add(this.txb_TotIVA);
             this.pn_Bottom.Controls.Add(this.label10);
-            this.pn_Bottom.Controls.Add(this.textBox6);
+            this.pn_Bottom.Controls.Add(this.txb_Subtotal);
             this.pn_Bottom.Controls.Add(this.label7);
             this.pn_Bottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pn_Bottom.Location = new System.Drawing.Point(0, 446);
@@ -102,7 +105,7 @@ namespace Presentacion
             // 
             // txb_TotCompra
             // 
-            this.txb_TotCompra.Location = new System.Drawing.Point(544, 22);
+            this.txb_TotCompra.Location = new System.Drawing.Point(540, 22);
             this.txb_TotCompra.Name = "txb_TotCompra";
             this.txb_TotCompra.Size = new System.Drawing.Size(76, 20);
             this.txb_TotCompra.TabIndex = 21;
@@ -111,7 +114,7 @@ namespace Presentacion
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(500, 25);
+            this.label12.Location = new System.Drawing.Point(499, 26);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(36, 13);
             this.label12.TabIndex = 20;
@@ -119,7 +122,7 @@ namespace Presentacion
             // 
             // txb_TotDescuento
             // 
-            this.txb_TotDescuento.Location = new System.Drawing.Point(414, 22);
+            this.txb_TotDescuento.Location = new System.Drawing.Point(293, 22);
             this.txb_TotDescuento.Name = "txb_TotDescuento";
             this.txb_TotDescuento.Size = new System.Drawing.Size(76, 20);
             this.txb_TotDescuento.TabIndex = 19;
@@ -128,7 +131,7 @@ namespace Presentacion
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(340, 25);
+            this.label11.Location = new System.Drawing.Point(220, 26);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(68, 13);
             this.label11.TabIndex = 18;
@@ -136,7 +139,7 @@ namespace Presentacion
             // 
             // txb_TotIVA
             // 
-            this.txb_TotIVA.Location = new System.Drawing.Point(252, 22);
+            this.txb_TotIVA.Location = new System.Drawing.Point(418, 22);
             this.txb_TotIVA.Name = "txb_TotIVA";
             this.txb_TotIVA.Size = new System.Drawing.Size(76, 20);
             this.txb_TotIVA.TabIndex = 17;
@@ -145,24 +148,24 @@ namespace Presentacion
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(208, 25);
+            this.label10.Location = new System.Drawing.Point(374, 26);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(39, 13);
             this.label10.TabIndex = 16;
             this.label10.Text = "I.V.A.";
             // 
-            // textBox6
+            // txb_Subtotal
             // 
-            this.textBox6.Location = new System.Drawing.Point(122, 22);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(76, 20);
-            this.textBox6.TabIndex = 15;
+            this.txb_Subtotal.Location = new System.Drawing.Point(139, 22);
+            this.txb_Subtotal.Name = "txb_Subtotal";
+            this.txb_Subtotal.Size = new System.Drawing.Size(76, 20);
+            this.txb_Subtotal.TabIndex = 15;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(62, 25);
+            this.label7.Location = new System.Drawing.Point(76, 26);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(58, 13);
             this.label7.TabIndex = 8;
@@ -348,14 +351,14 @@ namespace Presentacion
             // btnDescargar
             // 
             this.btnDescargar.BackColor = System.Drawing.Color.PeachPuff;
-            this.btnDescargar.Enabled = false;
             this.btnDescargar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDescargar.Location = new System.Drawing.Point(1091, 110);
             this.btnDescargar.Name = "btnDescargar";
             this.btnDescargar.Size = new System.Drawing.Size(136, 82);
             this.btnDescargar.TabIndex = 14;
-            this.btnDescargar.Text = "Descargar del \r\nCarrito";
+            this.btnDescargar.Text = "Cancelar \r\nCompra";
             this.btnDescargar.UseVisualStyleBackColor = false;
+            this.btnDescargar.Click += new System.EventHandler(this.btnDescargar_Click);
             // 
             // btnCargar
             // 
@@ -384,6 +387,7 @@ namespace Presentacion
             this.dgvCarrito.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCarrito.Location = new System.Drawing.Point(0, 0);
             this.dgvCarrito.Name = "dgvCarrito";
+            this.dgvCarrito.ReadOnly = true;
             this.dgvCarrito.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCarrito.Size = new System.Drawing.Size(471, 170);
             this.dgvCarrito.TabIndex = 0;
@@ -407,6 +411,10 @@ namespace Presentacion
             this.dgvCompra.Size = new System.Drawing.Size(1215, 242);
             this.dgvCompra.TabIndex = 0;
             // 
+            // errorP
+            // 
+            this.errorP.ContainerControl = this;
+            // 
             // frmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -419,6 +427,7 @@ namespace Presentacion
             this.Controls.Add(this.btnCargar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pn_Bottom);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmVenta";
@@ -435,6 +444,7 @@ namespace Presentacion
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrito)).EndInit();
             this.panel1Grid.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompra)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorP)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -469,11 +479,12 @@ namespace Presentacion
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txb_TotIVA;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txb_Subtotal;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.TextBox txb_Cantidad;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Panel panel1Grid;
         private System.Windows.Forms.DataGridView dgvCompra;
+        private System.Windows.Forms.ErrorProvider errorP;
     }
 }
