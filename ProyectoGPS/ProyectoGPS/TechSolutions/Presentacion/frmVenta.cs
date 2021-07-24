@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Data;
 using DATOS;
 
 namespace Presentacion
@@ -27,38 +26,47 @@ namespace Presentacion
             dateTimePicker1.Value = DateTime.Now;
             dateTimePicker1.Format = DateTimePickerFormat.Short;
 
-            SqlCommand CMD = new SqlCommand("SpCargarComboProducto", conex.AbrirConex());
-            CMD.CommandType = CommandType.StoredProcedure;
-            SqlDataReader producto = CMD.ExecuteReader();
-            while (producto.Read())
-            {
-                cmb_Producto.Items.Add(producto["NombreProducto"].ToString());
-                //cmb_Producto.Tag = cmb_Producto.Items.Add(producto["PrecioUnitario"].ToString()); 
-            }
-            conex.CerrarConex();
+            dgvCompra.Columns.Add("NombreProducto", "Nombre del Producto");
+            dgvCompra.Columns.Add("Cantidad", "Cantidad");
+            dgvCompra.Columns.Add("PrecioUnitario", "Precio por Unidad");
+            dgvCompra.Columns.Add("SubTotal", "SubTotal");
+            dgvCompra.Columns.Add("IVA", "I.V.A.");
+            dgvCompra.Columns.Add("Descuento", "Descuento");
+            dgvCompra.Columns.Add("Total", "Total");
 
-            dgvCarrito.Columns.Add("NombreProducto", "Producto");
-            dgvCarrito.Columns.Add("Cantidad", "Cantidad");
-            dgvCarrito.Columns.Add("IVA", "I.V.A.");
-            dgvCarrito.Columns.Add("Descuento", "Descuento");
-            //dgvCarrito.Columns.Add("PrecioUnitario", "Precio Unitario");
 
         }
-       
+
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
-            
-            dgvCarrito.Rows.Add(
-                cmb_Producto.Text,
-                txb_Cantidad.Text,
-                txb_IVA.Text,
-                txb_Descuento.Text
-                //cmb_Producto.Tag
-                //Precio()
-            
 
-                );
+
+
+
+        }
+
+        private void textBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+            conex.AbrirConex();
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Producto WHERE NombreProducto LIKE ('%"+textBox1.Text+"%')", conex.AbrirConex());
+            cmd.CommandType = CommandType.Text;
+            cmd.ExecuteNonQuery();
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter dta = new SqlDataAdapter(cmd);
+            dta.Fill(dt);
+
+            dgvCarrito.DataSource = dt;
+            dgvCarrito.Columns["IdProducto"].Visible = false;
+            dgvCarrito.Columns["CodProducto"].Visible = false;
+            dgvCarrito.Columns["PrecioUnitario"].Visible = false;
+            dgvCarrito.Columns["Cantidad"].HeaderText = "Cantidad en Existencia";
+            dgvCarrito.Columns["NombreProducto"].HeaderText = "Nombre del Producto";
+            conex.CerrarConex();
+
+
+
         }
     }
 }

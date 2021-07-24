@@ -29,7 +29,7 @@ namespace Presentacion
         cProducto cprod = new cProducto();
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            cprod.Insertar(txb_producto.Text, Convert.ToInt32(txb_cantidad.Text), Convert.ToDecimal(txb_precio.Text), txb_marca.Text);
+            cprod.Insertar(txb_CodProducto.Text,txb_producto.Text, Convert.ToInt32(txb_cantidad.Text), Convert.ToDecimal(txb_precio.Text), txb_marca.Text);
 
             MessageBox.Show("Producto Guardado Satisfactoriamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

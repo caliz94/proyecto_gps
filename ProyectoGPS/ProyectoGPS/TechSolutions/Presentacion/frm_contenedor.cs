@@ -134,6 +134,11 @@ namespace Presentacion
 
         private void mENUToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void lISTADODEPRODUCTOSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             frmInventarioProducto FormProducto = new frmInventarioProducto();
             FormProducto.MdiParent = frm_contenedor.ActiveForm;
             FormProducto.Show();

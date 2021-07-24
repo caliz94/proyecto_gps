@@ -31,13 +31,13 @@ namespace DATOS
             return tabla;
         }
         // insertar productos a nuestro inventario
-        public void insertar(string NombreProducto, int Cantidad, decimal PrecioUnitario, string Marca)
+        public void insertar(string CodProducto,string NombreProducto, int Cantidad, decimal PrecioUnitario, string Marca)
         {
             cmd.Connection = conex.AbrirConex();
             cmd.CommandText = "SpInsertarProductos";
             cmd.CommandType = CommandType.StoredProcedure;
             //cmd.Parameters.Add("@Operacion", SqlDbType.VarChar, 2).Value = "I";
-            //cmd.Parameters.Add("@IdProducto",SqlDbType.Int).Value = null;
+            cmd.Parameters.AddWithValue("@CodProducto", CodProducto);
             cmd.Parameters.AddWithValue("@NombreProducto",NombreProducto);
             cmd.Parameters.AddWithValue("@Cantidad",Cantidad);
             cmd.Parameters.AddWithValue("@PrecioUnitario",PrecioUnitario);

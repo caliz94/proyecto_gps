@@ -19,9 +19,9 @@ namespace LOGICA
             return dt;
         }
 
-        public void Insertar(string NombreProducto, int Cantidad, decimal PrecioUnitario, string Marca)
+        public void Insertar(string CodProducto,string NombreProducto, int Cantidad, decimal PrecioUnitario, string Marca)
         {
-            _Product_dal.insertar(NombreProducto,Convert.ToInt32(Cantidad),Convert.ToDecimal(PrecioUnitario), Marca);
+            _Product_dal.insertar(CodProducto,NombreProducto,Convert.ToInt32(Cantidad),Convert.ToDecimal(PrecioUnitario), Marca);
         }
 
         public void Editar(string NombreProducto, int Cantidad, decimal PrecioUnitario, string Marca,int IdProducto)

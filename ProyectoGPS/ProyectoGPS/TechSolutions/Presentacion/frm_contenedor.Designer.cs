@@ -36,6 +36,7 @@ namespace Presentacion
             this.nUEVOPRODUCTOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eDITARPRODUCTOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eLIMINARPRODUCTOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lISTADODEPRODUCTOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iNVENTARIOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sALIRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -51,7 +52,6 @@ namespace Presentacion
             this.errorP = new System.Windows.Forms.ErrorProvider(this.components);
             this.pnlRight = new System.Windows.Forms.Panel();
             this.lblFoot = new System.Windows.Forms.Label();
-            this.lISTADODEPRODUCTOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pboxLogin)).BeginInit();
@@ -61,6 +61,7 @@ namespace Presentacion
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.menuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -81,43 +82,51 @@ namespace Presentacion
             this.eLIMINARPRODUCTOToolStripMenuItem,
             this.lISTADODEPRODUCTOSToolStripMenuItem});
             this.mENUToolStripMenuItem.Name = "mENUToolStripMenuItem";
-            this.mENUToolStripMenuItem.Size = new System.Drawing.Size(111, 25);
-            this.mENUToolStripMenuItem.Text = "INVENTARIO";
+            this.mENUToolStripMenuItem.Size = new System.Drawing.Size(222, 25);
+            this.mENUToolStripMenuItem.Text = "Administración de Inventario";
             this.mENUToolStripMenuItem.Click += new System.EventHandler(this.mENUToolStripMenuItem_Click);
             // 
             // nUEVOPRODUCTOToolStripMenuItem
             // 
             this.nUEVOPRODUCTOToolStripMenuItem.Name = "nUEVOPRODUCTOToolStripMenuItem";
-            this.nUEVOPRODUCTOToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
-            this.nUEVOPRODUCTOToolStripMenuItem.Text = "NUEVO PRODUCTO";
+            this.nUEVOPRODUCTOToolStripMenuItem.Size = new System.Drawing.Size(324, 26);
+            this.nUEVOPRODUCTOToolStripMenuItem.Text = "Ingresar Nuevo Producto";
             this.nUEVOPRODUCTOToolStripMenuItem.Click += new System.EventHandler(this.nUEVOPRODUCTOToolStripMenuItem_Click);
             // 
             // eDITARPRODUCTOToolStripMenuItem
             // 
             this.eDITARPRODUCTOToolStripMenuItem.Name = "eDITARPRODUCTOToolStripMenuItem";
-            this.eDITARPRODUCTOToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
-            this.eDITARPRODUCTOToolStripMenuItem.Text = "EDITAR PRODUCTO";
+            this.eDITARPRODUCTOToolStripMenuItem.Size = new System.Drawing.Size(324, 26);
+            this.eDITARPRODUCTOToolStripMenuItem.Text = "Editar Producto";
             this.eDITARPRODUCTOToolStripMenuItem.Click += new System.EventHandler(this.eDITARPRODUCTOToolStripMenuItem_Click);
             // 
             // eLIMINARPRODUCTOToolStripMenuItem
             // 
             this.eLIMINARPRODUCTOToolStripMenuItem.Name = "eLIMINARPRODUCTOToolStripMenuItem";
-            this.eLIMINARPRODUCTOToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
-            this.eLIMINARPRODUCTOToolStripMenuItem.Text = "ELIMINAR PRODUCTO";
+            this.eLIMINARPRODUCTOToolStripMenuItem.Size = new System.Drawing.Size(324, 26);
+            this.eLIMINARPRODUCTOToolStripMenuItem.Text = "Eliminar Producto";
             this.eLIMINARPRODUCTOToolStripMenuItem.Click += new System.EventHandler(this.eLIMINARPRODUCTOToolStripMenuItem_Click);
+            // 
+            // lISTADODEPRODUCTOSToolStripMenuItem
+            // 
+            this.lISTADODEPRODUCTOSToolStripMenuItem.Name = "lISTADODEPRODUCTOSToolStripMenuItem";
+            this.lISTADODEPRODUCTOSToolStripMenuItem.Size = new System.Drawing.Size(324, 26);
+            this.lISTADODEPRODUCTOSToolStripMenuItem.Text = "Listado de Productos del Inventario";
+            this.lISTADODEPRODUCTOSToolStripMenuItem.Click += new System.EventHandler(this.lISTADODEPRODUCTOSToolStripMenuItem_Click);
             // 
             // iNVENTARIOToolStripMenuItem
             // 
             this.iNVENTARIOToolStripMenuItem.Name = "iNVENTARIOToolStripMenuItem";
-            this.iNVENTARIOToolStripMenuItem.Size = new System.Drawing.Size(78, 25);
-            this.iNVENTARIOToolStripMenuItem.Text = "VENTAS";
+            this.iNVENTARIOToolStripMenuItem.Size = new System.Drawing.Size(61, 25);
+            this.iNVENTARIOToolStripMenuItem.Text = "Venta";
             this.iNVENTARIOToolStripMenuItem.Click += new System.EventHandler(this.iNVENTARIOToolStripMenuItem_Click);
             // 
             // sALIRToolStripMenuItem
             // 
+            this.sALIRToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.sALIRToolStripMenuItem.Name = "sALIRToolStripMenuItem";
-            this.sALIRToolStripMenuItem.Size = new System.Drawing.Size(63, 25);
-            this.sALIRToolStripMenuItem.Text = "SALIR";
+            this.sALIRToolStripMenuItem.Size = new System.Drawing.Size(53, 25);
+            this.sALIRToolStripMenuItem.Text = "Salir";
             this.sALIRToolStripMenuItem.Click += new System.EventHandler(this.sALIRToolStripMenuItem_Click);
             // 
             // panel1
@@ -257,12 +266,6 @@ namespace Presentacion
             this.lblFoot.TabIndex = 0;
             this.lblFoot.Text = "Gestión de Proyectos de Software";
             this.lblFoot.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lISTADODEPRODUCTOSToolStripMenuItem
-            // 
-            this.lISTADODEPRODUCTOSToolStripMenuItem.Name = "lISTADODEPRODUCTOSToolStripMenuItem";
-            this.lISTADODEPRODUCTOSToolStripMenuItem.Size = new System.Drawing.Size(259, 26);
-            this.lISTADODEPRODUCTOSToolStripMenuItem.Text = "LISTADO DE PRODUCTOS";
             // 
             // frm_contenedor
             // 
