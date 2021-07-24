@@ -18,7 +18,10 @@ namespace Presentacion
         {
             InitializeComponent();
         }
-        public static string nombreProducto = "", cantidad = "", precioUnitario = "", subTotal = "", descuento = "", iva = "", total = "";
+        public static string nombreProducto = "", cantidad = "", precioUnitario = "", subTotal = "", descuento = "", iva = "", total = "", idProducto = "";
+
+        private Producto_DAL _ProductoDAL = new Producto_DAL();
+       
 
         private void btnDescargar_Click(object sender, EventArgs e)
         {
@@ -32,6 +35,7 @@ namespace Presentacion
             dateTimePicker1.Value = DateTime.Now;
             dateTimePicker1.Format = DateTimePickerFormat.Short;
 
+            dgvCompra.Columns.Add("IdProducto", "IdProducto");
             dgvCompra.Columns.Add("NombreProducto", "Nombre del Producto");
             dgvCompra.Columns.Add("Cantidad", "Cantidad");
             dgvCompra.Columns.Add("PrecioUnitario", "Precio por Unidad");
@@ -47,15 +51,16 @@ namespace Presentacion
             txb_TotCompra.Text = "0";
         }
 
-        
+        //string _idproducto[] = new string[];
         private void btnCargar_Click(object sender, EventArgs e)
         {
             if (txb_Cliente.Text == string.Empty)
                 errorP.SetError(txb_Cliente, "Debe Ingresar el nombre del Cliente");
             else if (Convert.ToInt32(txb_Cantidad.Text) >= 1)
             {
-               
+
                 dgvCompra.Rows.Add(
+           idProducto = dgvCarrito.CurrentRow.Cells["IdProducto"].Value.ToString(),
            //Nombre Producto
            nombreProducto = dgvCarrito.CurrentRow.Cells["NombreProducto"].Value.ToString(),
            //Cantidad
@@ -109,6 +114,21 @@ namespace Presentacion
 
 
 
+        }
+
+        private void btnPagar_Click(object sender, EventArgs e)
+        {
+            for (int fila = 0; fila <= dgvCompra.Rows.Count - 1; fila++)
+            {
+                _ProductoDAL.grabarVenta(
+                    Convert.ToInt32(idProducto),
+                    Convert.ToInt32(cantidad),
+                    Convert.ToDecimal(subTotal),
+                    Convert.ToDecimal(descuento),
+                    Convert.ToDecimal(iva),
+                    Convert.ToDecimal(total));
+            }
+            lblMensaje.Visible = true;
         }
     }
 }

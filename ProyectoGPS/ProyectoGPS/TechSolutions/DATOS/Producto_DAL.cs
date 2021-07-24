@@ -46,6 +46,22 @@ namespace DATOS
             cmd.Parameters.Clear();
             cmd.Connection = conex.CerrarConex();
         }
+        // GRABAR VENTA
+        public void grabarVenta(int IdProducto, int Cantidad, decimal SubTotal, decimal Descuento, decimal IVA, decimal Total)
+        {
+            cmd.Connection = conex.AbrirConex();
+            cmd.CommandText = "Sp_GrabarVenta";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@IdProducto", IdProducto);
+            cmd.Parameters.AddWithValue("@Cantidad", Cantidad);
+            cmd.Parameters.AddWithValue("@SubTotal", SubTotal);
+            cmd.Parameters.AddWithValue("@Descuento", Descuento);
+            cmd.Parameters.AddWithValue("@IVA", IVA);
+            cmd.Parameters.AddWithValue("@Total", Total);
+            cmd.ExecuteNonQuery();
+            cmd.Parameters.Clear();
+            cmd.Connection = conex.CerrarConex();
+        }
         // Editar productos a nuestro inventario
         public void Editar(string NombreProducto, int Cantidad, decimal PrecioUnitario, string Marca, int IdProducto)
         {

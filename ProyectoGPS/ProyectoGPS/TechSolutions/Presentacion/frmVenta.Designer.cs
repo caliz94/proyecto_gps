@@ -65,6 +65,7 @@ namespace Presentacion
             this.panel1Grid = new System.Windows.Forms.Panel();
             this.dgvCompra = new System.Windows.Forms.DataGridView();
             this.errorP = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblMensaje = new System.Windows.Forms.Label();
             this.pn_Bottom.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -77,6 +78,7 @@ namespace Presentacion
             // 
             // pn_Bottom
             // 
+            this.pn_Bottom.Controls.Add(this.lblMensaje);
             this.pn_Bottom.Controls.Add(this.btnPagar);
             this.pn_Bottom.Controls.Add(this.txb_TotCompra);
             this.pn_Bottom.Controls.Add(this.label12);
@@ -102,6 +104,7 @@ namespace Presentacion
             this.btnPagar.TabIndex = 15;
             this.btnPagar.Text = "APLICAR\r\nCOMPRA";
             this.btnPagar.UseVisualStyleBackColor = false;
+            this.btnPagar.Click += new System.EventHandler(this.btnPagar_Click);
             // 
             // txb_TotCompra
             // 
@@ -415,6 +418,19 @@ namespace Presentacion
             // 
             this.errorP.ContainerControl = this;
             // 
+            // lblMensaje
+            // 
+            this.lblMensaje.AutoSize = true;
+            this.lblMensaje.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblMensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensaje.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblMensaje.Location = new System.Drawing.Point(815, 22);
+            this.lblMensaje.Name = "lblMensaje";
+            this.lblMensaje.Size = new System.Drawing.Size(282, 20);
+            this.lblMensaje.TabIndex = 22;
+            this.lblMensaje.Text = "Compra Realizada Satisfactoriamente.";
+            this.lblMensaje.Visible = false;
+            // 
             // frmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -486,5 +502,6 @@ namespace Presentacion
         private System.Windows.Forms.Panel panel1Grid;
         private System.Windows.Forms.DataGridView dgvCompra;
         private System.Windows.Forms.ErrorProvider errorP;
+        private System.Windows.Forms.Label lblMensaje;
     }
 }
