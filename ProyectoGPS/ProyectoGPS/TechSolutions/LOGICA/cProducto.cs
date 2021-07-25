@@ -43,5 +43,10 @@ namespace LOGICA
         {
             _Product_dal.BuscarProducto(BNombreProducto);
         }
+
+        public void RegistrarUsuario(string Usuario, string Contraseña, string NombreRol)
+        {
+            _Product_dal.RegistrarUsuario(Usuario, Contraseña, NombreRol);
+        }
     }
 }

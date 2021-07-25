@@ -101,5 +101,19 @@ namespace DATOS
             cmd.Parameters.Clear();
             cmd.Connection = conex.CerrarConex();
         }
+
+        // Método para Registrar Usuarios
+        public void RegistrarUsuario(string Usuario, string Contraseña, string NombreRol)
+        {
+            cmd.Connection = conex.AbrirConex();
+            cmd.CommandText = "SpRegistrarUsuario";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Usuario", Usuario);
+            cmd.Parameters.AddWithValue("@Contraseña", Contraseña);
+            cmd.Parameters.AddWithValue("@NombreRol", NombreRol);
+            cmd.ExecuteNonQuery();
+            cmd.Parameters.Clear();
+            cmd.Connection = conex.CerrarConex();
+        }
     }
 }

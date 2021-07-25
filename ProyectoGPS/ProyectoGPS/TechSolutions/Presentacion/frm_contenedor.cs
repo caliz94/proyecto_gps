@@ -28,14 +28,6 @@ namespace Presentacion
 
         }
 
-        private void nUEVOPRODUCTOToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //this.Hide();
-            frmIngresarProductos produc = new frmIngresarProductos();
-            produc.MdiParent = frm_contenedor.ActiveForm;
-            produc.Show();
-        }
-
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             if (txb_usuario.Text == string.Empty)
@@ -96,20 +88,6 @@ namespace Presentacion
             menuStrip1.Visible = false;
         }
 
-        private void iNVENTARIOToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmVenta FormVenta = new frmVenta();
-            FormVenta.MdiParent = frm_contenedor.ActiveForm;
-            FormVenta.Show();
-        }
-
-        private void eDITARPRODUCTOToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmEditar FormEProducto = new frmEditar();
-            FormEProducto.MdiParent = frm_contenedor.ActiveForm;
-            FormEProducto.Show();
-        }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -125,31 +103,54 @@ namespace Presentacion
             lbl_login.Visible = false;
         }
 
-        private void eLIMINARPRODUCTOToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmEliminar formEliminar = new frmEliminar();
-            formEliminar.MdiParent = frm_contenedor.ActiveForm;
-            formEliminar.Show();
-        }
-
-        private void mENUToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void lISTADODEPRODUCTOSToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmInventarioProducto FormProducto = new frmInventarioProducto();
-            FormProducto.MdiParent = frm_contenedor.ActiveForm;
-            FormProducto.Show();
-        }
-
         private void pictNuevoUsuario_Click(object sender, EventArgs e)
         {
             panel1.Visible = false;
             frmRegistro FormRegistro = new frmRegistro();
             FormRegistro.MdiParent = frm_contenedor.ActiveForm;
             FormRegistro.Show();
+        }
+
+        private void editarProductoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmEditar FormEProducto = new frmEditar();
+            FormEProducto.MdiParent = frm_contenedor.ActiveForm;
+            FormEProducto.Show();
+        }
+
+        private void eliminarProductoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmEliminar formEliminar = new frmEliminar();
+            formEliminar.MdiParent = frm_contenedor.ActiveForm;
+            formEliminar.Show();
+        }
+
+        private void listadoDeProductosDelInventarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmInventarioProducto FormProducto = new frmInventarioProducto();
+            FormProducto.MdiParent = frm_contenedor.ActiveForm;
+            FormProducto.Show();
+        }
+
+        private void ingresarNuevoProductoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmIngresarProductos produc = new frmIngresarProductos();
+            produc.MdiParent = frm_contenedor.ActiveForm;
+            produc.Show();
+        }
+
+        private void registrarVentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmVenta FormVenta = new frmVenta();
+            FormVenta.MdiParent = frm_contenedor.ActiveForm;
+            FormVenta.Show();
+        }
+
+        private void registrarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRegistro fregistro = new frmRegistro();
+            fregistro.MdiParent = frm_contenedor.ActiveForm;
+            fregistro.Show();
         }
     }
 }
