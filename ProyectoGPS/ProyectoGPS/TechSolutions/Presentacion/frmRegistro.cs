@@ -50,9 +50,21 @@ namespace Presentacion
             var numeros = @"\b(\w*[0-9]\w.)";
             var mayusculas = @"\b(\w*[A-Z]\w.)";
             var minusculas = @"\b(\w*[a-z]\w.)";
-            var simbolos = @"\b(\w*[!#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~]\w.)";
-            if (txt_Contraseña.Text.Length >= 8)
+            var simbolos = @"\b(\w*[!@#$%?]\w.)";
+
+            if (txtUsuario.Text.Trim() == string.Empty)
             {
+                errorP.SetError(txtUsuario, "Debe ingresar un usuario");
+            }
+            else if (txt_Contraseña.Text.Trim() == string.Empty)
+            {
+                errorP.SetError(txtUsuario, "");
+                errorP.SetError(txt_Contraseña, "Debe ingresar una contraseña");
+            }
+
+            else if (txt_Contraseña.Text.Length >= 8)
+            {
+                errorP.SetError(cbox_Roles, "");
                 if (Regex.IsMatch(txt_Contraseña.Text, todosletras))
                 {
 
@@ -69,39 +81,51 @@ namespace Presentacion
 
                                 if (Regex.IsMatch(txt_Contraseña.Text, simbolos))
                                 {
-                                    OProductoDAL.RegistrarUsuario(txtUsuario.Text, txt_Contraseña.Text.Trim(), cbox_Roles.Text);
-                                    MessageBox.Show("Usuario Registrado Satisfactoriamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                    //MessageBox.Show("contraseña correcta");
+                                    if (cbox_Roles.SelectedIndex == -1)
+                                    {
+                                        errorP.SetError(txt_Contraseña, "");
+                                        errorP.SetError(cbox_Roles, "Debe seleccionar un rol");
+                                    }
+                                    else
+                                    {
+                                        errorP.SetError(txt_Contraseña, "");
+                                        OProductoDAL.RegistrarUsuario(txtUsuario.Text, txt_Contraseña.Text.Trim(), cbox_Roles.Text);
+                                        MessageBox.Show("Usuario Registrado Satisfactoriamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                        //MessageBox.Show("contraseña correcta");
+                                        txtUsuario.Clear();
+                                        txt_Contraseña.Clear();
+                                    }
                                 }
                                 else
                                 {
-                                    MessageBox.Show("contraseña ingrese un simbolo");
+                                    errorP.SetError(txt_Contraseña, "ingrese un simbolo (!@#$%?)");
                                 }
                             }
                             else
                             {
-                                MessageBox.Show("Ingrese letras minusculas");
+                                errorP.SetError(txt_Contraseña, "Ingrese letras minusculas");
                             }
                         }
                         else
                         {
-                            MessageBox.Show("ingrese letras mayusculas");
+                            errorP.SetError(txt_Contraseña, "ingrese letras mayusculas");
                         }
                     }
                     else
                     {
-                        MessageBox.Show("ingrese numeros,");
+                        errorP.SetError(txt_Contraseña, "ingrese numeros,");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("La contraseña no cumple con los parametros necesarios");
+                    errorP.SetError(txt_Contraseña, "La contraseña no cumple con los parametros necesarios");
                 }
             }
             else
             {
-                MessageBox.Show("la contraseña debe ser de 8 caracteres");
+                errorP.SetError(txt_Contraseña, "la contraseña debe ser de 8 caracteres");
             }
+             
         }
 
         private void txt_Contraseña_Leave(object sender, EventArgs e)

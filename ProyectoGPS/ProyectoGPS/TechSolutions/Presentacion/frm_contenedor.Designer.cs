@@ -44,7 +44,6 @@ namespace Presentacion
             this.registrarVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sALIRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictNuevoUsuario = new System.Windows.Forms.PictureBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.lbl_login = new System.Windows.Forms.Label();
@@ -59,7 +58,6 @@ namespace Presentacion
             this.lblFoot = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictNuevoUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxLogin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorP)).BeginInit();
             this.pnlRight.SuspendLayout();
@@ -88,7 +86,6 @@ namespace Presentacion
             this.mENUToolStripMenuItem.Name = "mENUToolStripMenuItem";
             this.mENUToolStripMenuItem.Size = new System.Drawing.Size(127, 25);
             this.mENUToolStripMenuItem.Text = "Administración";
-            this.mENUToolStripMenuItem.Visible = false;
             // 
             // inventarioToolStripMenuItem1
             // 
@@ -151,7 +148,6 @@ namespace Presentacion
             this.iNVENTARIOToolStripMenuItem.Name = "iNVENTARIOToolStripMenuItem";
             this.iNVENTARIOToolStripMenuItem.Size = new System.Drawing.Size(61, 25);
             this.iNVENTARIOToolStripMenuItem.Text = "Venta";
-            this.iNVENTARIOToolStripMenuItem.Visible = false;
             // 
             // registrarVentaToolStripMenuItem
             // 
@@ -166,14 +162,12 @@ namespace Presentacion
             this.sALIRToolStripMenuItem.Name = "sALIRToolStripMenuItem";
             this.sALIRToolStripMenuItem.Size = new System.Drawing.Size(53, 25);
             this.sALIRToolStripMenuItem.Text = "Salir";
-            this.sALIRToolStripMenuItem.Visible = false;
             this.sALIRToolStripMenuItem.Click += new System.EventHandler(this.sALIRToolStripMenuItem_Click);
             // 
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel1.Controls.Add(this.pictNuevoUsuario);
             this.panel1.Controls.Add(this.btnCancelar);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.lbl_login);
@@ -188,17 +182,6 @@ namespace Presentacion
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(436, 364);
             this.panel1.TabIndex = 13;
-            // 
-            // pictNuevoUsuario
-            // 
-            this.pictNuevoUsuario.Image = global::Presentacion.Properties.Resources.new_add_user_16734;
-            this.pictNuevoUsuario.Location = new System.Drawing.Point(375, 3);
-            this.pictNuevoUsuario.Name = "pictNuevoUsuario";
-            this.pictNuevoUsuario.Size = new System.Drawing.Size(58, 50);
-            this.pictNuevoUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictNuevoUsuario.TabIndex = 16;
-            this.pictNuevoUsuario.TabStop = false;
-            this.pictNuevoUsuario.Click += new System.EventHandler(this.pictNuevoUsuario_Click);
             // 
             // btnCancelar
             // 
@@ -340,7 +323,6 @@ namespace Presentacion
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictNuevoUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxLogin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorP)).EndInit();
             this.pnlRight.ResumeLayout(false);
@@ -369,7 +351,6 @@ namespace Presentacion
         private System.Windows.Forms.ErrorProvider errorP;
         private System.Windows.Forms.Panel pnlRight;
         private System.Windows.Forms.Label lblFoot;
-        private System.Windows.Forms.PictureBox pictNuevoUsuario;
         private System.Windows.Forms.ToolStripMenuItem inventarioToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem ingresarNuevoProductoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarProductoToolStripMenuItem1;
