@@ -143,5 +143,13 @@ namespace Presentacion
             FormProducto.MdiParent = frm_contenedor.ActiveForm;
             FormProducto.Show();
         }
+
+        private void pictNuevoUsuario_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = false;
+            frmRegistro FormRegistro = new frmRegistro();
+            FormRegistro.MdiParent = frm_contenedor.ActiveForm;
+            FormRegistro.Show();
+        }
     }
 }

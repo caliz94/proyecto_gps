@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LOGICA;
+using System.Text.RegularExpressions;
 
 namespace Presentacion
 {
@@ -35,6 +36,39 @@ namespace Presentacion
             MessageBox.Show("Producto Guardado Satisfactoriamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             LimpiarControles();
+        }
+
+        private void txb_cantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //if (Char.IsDigit(e.KeyChar))
+            //{
+            //    e.Handled = false;
+            //}
+            //if (Char.IsLetter(e.KeyChar))
+            //{
+            //    e.Handled = true;
+            //}
+            //if (Char.IsPunctuation(e.KeyChar))
+            //{
+            //    e.Handled = true;
+            //}
+            //if (Char.IsSymbol(e.KeyChar))
+            //{
+            //    e.Handled = true;
+            //}
+            //if (Char.IsWhiteSpace(e.KeyChar))
+            //{
+            //    e.Handled = true;
+            //}
+
+            var regex = @"[0-9]+[.]{1}[0-9]{2}$";
+
+            if (Regex.IsMatch(txb_cantidad.Text, regex))
+            {
+                e.Handled = true;
+            }
+            
+
         }
     }
 }

@@ -40,6 +40,7 @@ namespace Presentacion
             this.iNVENTARIOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sALIRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictNuevoUsuario = new System.Windows.Forms.PictureBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.lbl_login = new System.Windows.Forms.Label();
@@ -54,6 +55,7 @@ namespace Presentacion
             this.lblFoot = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictNuevoUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxLogin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorP)).BeginInit();
             this.pnlRight.SuspendLayout();
@@ -133,6 +135,7 @@ namespace Presentacion
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel1.Controls.Add(this.pictNuevoUsuario);
             this.panel1.Controls.Add(this.btnCancelar);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.lbl_login);
@@ -143,10 +146,21 @@ namespace Presentacion
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.panel1.Location = new System.Drawing.Point(129, 74);
+            this.panel1.Location = new System.Drawing.Point(132, 78);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(436, 364);
             this.panel1.TabIndex = 13;
+            // 
+            // pictNuevoUsuario
+            // 
+            this.pictNuevoUsuario.Image = global::Presentacion.Properties.Resources.new_add_user_16734;
+            this.pictNuevoUsuario.Location = new System.Drawing.Point(375, 3);
+            this.pictNuevoUsuario.Name = "pictNuevoUsuario";
+            this.pictNuevoUsuario.Size = new System.Drawing.Size(58, 50);
+            this.pictNuevoUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictNuevoUsuario.TabIndex = 16;
+            this.pictNuevoUsuario.TabStop = false;
+            this.pictNuevoUsuario.Click += new System.EventHandler(this.pictNuevoUsuario_Click);
             // 
             // btnCancelar
             // 
@@ -250,7 +264,7 @@ namespace Presentacion
             this.pnlRight.BackColor = System.Drawing.Color.SandyBrown;
             this.pnlRight.Controls.Add(this.lblFoot);
             this.pnlRight.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlRight.Location = new System.Drawing.Point(0, 414);
+            this.pnlRight.Location = new System.Drawing.Point(0, 463);
             this.pnlRight.Name = "pnlRight";
             this.pnlRight.Size = new System.Drawing.Size(800, 36);
             this.pnlRight.TabIndex = 16;
@@ -271,7 +285,8 @@ namespace Presentacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(800, 499);
             this.Controls.Add(this.pnlRight);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
@@ -287,6 +302,7 @@ namespace Presentacion
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictNuevoUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxLogin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorP)).EndInit();
             this.pnlRight.ResumeLayout(false);
@@ -319,5 +335,6 @@ namespace Presentacion
         private System.Windows.Forms.Panel pnlRight;
         private System.Windows.Forms.Label lblFoot;
         private System.Windows.Forms.ToolStripMenuItem lISTADODEPRODUCTOSToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictNuevoUsuario;
     }
 }

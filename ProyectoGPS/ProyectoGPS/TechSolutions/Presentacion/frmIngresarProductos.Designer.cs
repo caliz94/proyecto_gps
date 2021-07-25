@@ -111,6 +111,7 @@ namespace Presentacion
             this.txb_cantidad.Name = "txb_cantidad";
             this.txb_cantidad.Size = new System.Drawing.Size(207, 20);
             this.txb_cantidad.TabIndex = 3;
+            this.txb_cantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_cantidad_KeyPress);
             // 
             // btnGuardar
             // 
