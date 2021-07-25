@@ -61,15 +61,16 @@
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            this.btnAceptar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnAceptar_MouseMove);
             // 
             // txt_Contraseña
             // 
             this.txt_Contraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Contraseña.Location = new System.Drawing.Point(149, 110);
             this.txt_Contraseña.Name = "txt_Contraseña";
-            this.txt_Contraseña.PasswordChar = '*';
             this.txt_Contraseña.Size = new System.Drawing.Size(243, 26);
             this.txt_Contraseña.TabIndex = 11;
+            this.txt_Contraseña.Leave += new System.EventHandler(this.txt_Contraseña_Leave);
             // 
             // txtUsuario
             // 

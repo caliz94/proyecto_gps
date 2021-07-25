@@ -71,31 +71,6 @@ namespace Presentacion
                 }
 
 
-
-                
-                SqlCommand cmdroles = new SqlCommand("SELECT DescripcionRol FROM roles WHERE IdRol = (SELECT IdRol FROM usuarios WHERE usuario = '" + txb_usuario.Text + "')", conex.AbrirConex());
-                cmdroles.CommandType = CommandType.Text;
-                cmdroles.ExecuteNonQuery();
-
-                DataTable dt = new DataTable();
-                SqlDataAdapter dta = new SqlDataAdapter(cmdroles);
-                dta.Fill(dt);
-                rol = dt.ToString();
-
-                if (rol == "Administrador")
-                {
-                    mENUToolStripMenuItem.Visible = true;
-                    iNVENTARIOToolStripMenuItem.Visible = true;
-                    sALIRToolStripMenuItem.Visible = true;
-                }
-                else if (rol == "Vendedor")
-                {
-                    mENUToolStripMenuItem.Visible = false;
-                    iNVENTARIOToolStripMenuItem.Visible = true;
-                    sALIRToolStripMenuItem.Visible = true;
-                }
-
-
                 conex.CerrarConex();
             }
             catch (Exception ex)
