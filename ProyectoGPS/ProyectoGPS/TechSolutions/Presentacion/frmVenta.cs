@@ -63,7 +63,7 @@ namespace Presentacion
         private void txb_Cantidad_KeyUp(object sender, KeyEventArgs e)
         {
             txb_IVA.Enabled = true;
-            txb_IVA.ReadOnly = false;
+            //txb_IVA.ReadOnly = false;
             txb_Descuento.Enabled = true;
             txb_Descuento.ReadOnly = false;
         }
@@ -155,18 +155,45 @@ namespace Presentacion
 
         private void btnPagar_Click(object sender, EventArgs e)
         {
-            for (int fila = 0; fila < x; fila++)
+            try
             {
-                _ProductoDAL.grabarVenta(
-                    Convert.ToInt32(_idproducto[fila]),
-                    txb_Cliente.Text.ToString(),
-                    Convert.ToInt32(_cantidad[fila]),
-                    Convert.ToDecimal(subTotal),
-                    Convert.ToDecimal(descuento),
-                    Convert.ToDecimal(iva),
-                    Convert.ToDecimal(total));
+
+                if (Convert.ToInt32(txb_TotCompra.Text) > 0)
+                {
+                    for (int fila = 0; fila < x; fila++)
+                    {
+                        _ProductoDAL.grabarVenta(
+                            Convert.ToInt32(_idproducto[fila]),
+                            txb_Cliente.Text.ToString(),
+                            Convert.ToInt32(_cantidad[fila]),
+                            Convert.ToDecimal(subTotal),
+                            Convert.ToDecimal(descuento),
+                            Convert.ToDecimal(iva),
+                            Convert.ToDecimal(total));
+                    }
+                    txb_TotCompra.Clear();
+                    txb_IVA.Clear();
+                    txb_TotCompra.Clear();
+                    txb_Subtotal.Clear();
+                    txb_TotDescuento.Clear();
+                   
+                    txb_Producto.Clear();
+                    lblMensaje.Text = "Compra Realizada Sastifactoriamente";
+                }
+                
+                else
+                {
+                    lblMensaje.Text = "Favor cargue los productos a comprar.";
+                    lblMensaje.BackColor = Color.Red;
+                }
+               
             }
-            lblMensaje.Visible = true;
+            catch (Exception)
+            {
+
+                MessageBox.Show("Ocurrio Un Problema");
+            }
+          
         }
     }
 }

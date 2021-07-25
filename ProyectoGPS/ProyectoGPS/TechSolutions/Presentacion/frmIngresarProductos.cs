@@ -31,19 +31,34 @@ namespace Presentacion
         cProducto cprod = new cProducto();
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            cprod.Insertar(txb_CodProducto.Text,txb_producto.Text, Convert.ToInt32(txb_cantidad.Text), Convert.ToDecimal(txb_precio.Text), txb_marca.Text);
+            try
+            {
+                if (txb_marca.Text!=string.Empty)
+                {
+                    cprod.Insertar(txb_CodProducto.Text, txb_producto.Text, Convert.ToInt32(txb_cantidad.Text), Convert.ToDecimal(txb_precio.Text), txb_marca.Text);
 
-            MessageBox.Show("Producto Guardado Satisfactoriamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Producto Guardado Satisfactoriamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            LimpiarControles();
+                    LimpiarControles();
+                }
+                
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Campos Obligatorios");
+            }
+
+            
         }
 
         private void txb_cantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (Char.IsDigit(e.KeyChar))
+            if (Char.IsNumber(e.KeyChar))
             {
                 e.Handled = false;
             }
+           
             if (Char.IsLetter(e.KeyChar))
             {
                 e.Handled = true;
@@ -69,6 +84,56 @@ namespace Presentacion
             //}
 
 
+        }
+
+        private void txb_precio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+
+            if (Char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            if (Char.IsPunctuation(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            if (Char.IsSymbol(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            if (Char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txb_CodProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsNumber(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+
+            if (Char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            if (Char.IsPunctuation(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            if (Char.IsSymbol(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            if (Char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

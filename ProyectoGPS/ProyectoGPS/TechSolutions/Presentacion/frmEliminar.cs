@@ -55,24 +55,32 @@ namespace Presentacion
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(dgvResultados.CurrentRow.Cells["Cantidad"].Value.ToString()) == 0)
+            try
             {
-                if (MessageBox.Show("Favor confirmar Eliminación del Registro", "ALERTA",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning) == DialogResult.OK)
+                if (Convert.ToInt32(dgvResultados.CurrentRow.Cells["Cantidad"].Value.ToString()) == 0)
                 {
-                    txbIdProducto.Text = dgvResultados.CurrentRow.Cells["IdProducto"].Value.ToString();
-                    proc.Eliminar(Convert.ToInt32(txbIdProducto.Text));
-                    lblMensaje.Visible = true;
-                    lblMensaje.ForeColor = Color.Blue;
-                    lblMensaje.Text = "REGISTRO ELIMINADO CORRECTAMENTE";
+                    if (MessageBox.Show("Favor confirmar Eliminación del Registro", "ALERTA", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                    {
+                        txbIdProducto.Text = dgvResultados.CurrentRow.Cells["IdProducto"].Value.ToString();
+                        proc.Eliminar(Convert.ToInt32(txbIdProducto.Text));
+                        lblMensaje.Visible = true;
+                        lblMensaje.ForeColor = Color.Blue;
+                        lblMensaje.Text = "REGISTRO ELIMINADO CORRECTAMENTE";
+                    }
+
                 }
-                
+                else
+                {
+                    MessageBox.Show("No se pueden eliminar Productos con existencias diferente de cero", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    lblMensaje.Visible = true;
+                    lblMensaje.ForeColor = Color.Red;
+                    lblMensaje.Text = "Operación Cancelada: El Producto posee existencias.";
+                }
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show("No se pueden eliminar Productos con existencias diferente de cero", "Alerta",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                lblMensaje.Visible = true;
-                lblMensaje.ForeColor = Color.Red;
-                lblMensaje.Text = "Operación Cancelada: El Producto posee existencias.";
+
+                MessageBox.Show("Selecione el producto a eliminar");
             }
             
 

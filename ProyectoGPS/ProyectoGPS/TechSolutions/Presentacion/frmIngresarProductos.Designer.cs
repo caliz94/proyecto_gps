@@ -97,6 +97,7 @@ namespace Presentacion
             this.txb_precio.Name = "txb_precio";
             this.txb_precio.Size = new System.Drawing.Size(207, 20);
             this.txb_precio.TabIndex = 4;
+            this.txb_precio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_precio_KeyPress);
             // 
             // txb_marca
             // 
@@ -140,6 +141,7 @@ namespace Presentacion
             this.txb_CodProducto.Name = "txb_CodProducto";
             this.txb_CodProducto.Size = new System.Drawing.Size(207, 20);
             this.txb_CodProducto.TabIndex = 1;
+            this.txb_CodProducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_CodProducto_KeyPress);
             // 
             // label6
             // 

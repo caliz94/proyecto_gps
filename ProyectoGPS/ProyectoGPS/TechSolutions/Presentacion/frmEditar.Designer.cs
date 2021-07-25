@@ -83,6 +83,7 @@ namespace Presentacion
             this.txb_cantidad.ReadOnly = true;
             this.txb_cantidad.Size = new System.Drawing.Size(207, 20);
             this.txb_cantidad.TabIndex = 17;
+            this.txb_cantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_cantidad_KeyPress);
             // 
             // txb_marca
             // 
@@ -99,6 +100,7 @@ namespace Presentacion
             this.txb_precio.ReadOnly = true;
             this.txb_precio.Size = new System.Drawing.Size(207, 20);
             this.txb_precio.TabIndex = 15;
+            this.txb_precio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_precio_KeyPress);
             // 
             // txb_producto
             // 
@@ -210,7 +212,7 @@ namespace Presentacion
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(425, 251);
             this.dataGridView1.TabIndex = 25;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // txb_CodProducto
             // 

@@ -81,21 +81,51 @@ namespace Presentacion
         cProducto prod = new cProducto();
         public void edit()
         {
-            prod.Editar(txb_producto.Text,Convert.ToInt32(txb_cantidad.Text),Convert.ToDecimal(txb_precio.Text), txb_marca.Text, Convert.ToInt32(txb_IdProducto.Text));
+            try
+            {
+                if (txb_producto.Text!=string.Empty)
+                {
+                    if (txb_marca.Text!=string.Empty)
+                    {
+                        prod.Editar(txb_producto.Text, Convert.ToInt32(txb_cantidad.Text), Convert.ToDecimal(txb_precio.Text), txb_marca.Text, Convert.ToInt32(txb_IdProducto.Text));
+                        MessageBox.Show("Producto Actualizado");
+                        dataGridView1.DataSource = "";
+                        txb_CodProducto.Visible = false;
+                        lblCodProducto.Visible = false;
+                        limpiarcontrols();
+                    }
+                     else
+                    {
+                        MessageBox.Show("Campos Obligatorios");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Campos Obligatorios");
+                }
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Campos Obligatorios");
+            }
 
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            edit();
+            edit();         
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
             limpiarcontrols();
-            MessageBox.Show("Producto Actualizado");           
             dataGridView1.DataSource = "";
             txb_CodProducto.Visible = false;
             lblCodProducto.Visible = false;
         }
-        
-        public void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txb_CodProducto.Text = dataGridView1.CurrentRow.Cells["CodProducto"].Value.ToString();
             txb_CodProducto.ReadOnly = true;
@@ -109,12 +139,56 @@ namespace Presentacion
             habilitarControles();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void txb_cantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
-            limpiarcontrols();
-            dataGridView1.DataSource = "";
-            txb_CodProducto.Visible = false;
-            lblCodProducto.Visible = false;
+
+            if (Char.IsNumber(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+
+            if (Char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            if (Char.IsPunctuation(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            if (Char.IsSymbol(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            if (Char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txb_precio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (Char.IsNumber(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+
+            if (Char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            if (Char.IsPunctuation(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            if (Char.IsSymbol(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+            if (Char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

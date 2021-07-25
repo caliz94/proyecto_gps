@@ -102,10 +102,8 @@ namespace Presentacion
             this.lblMensaje.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblMensaje.Location = new System.Drawing.Point(815, 22);
             this.lblMensaje.Name = "lblMensaje";
-            this.lblMensaje.Size = new System.Drawing.Size(282, 20);
+            this.lblMensaje.Size = new System.Drawing.Size(0, 20);
             this.lblMensaje.TabIndex = 22;
-            this.lblMensaje.Text = "Compra Realizada Satisfactoriamente.";
-            this.lblMensaje.Visible = false;
             // 
             // btnPagar
             // 
