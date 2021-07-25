@@ -88,6 +88,7 @@ namespace Presentacion
             this.mENUToolStripMenuItem.Name = "mENUToolStripMenuItem";
             this.mENUToolStripMenuItem.Size = new System.Drawing.Size(127, 25);
             this.mENUToolStripMenuItem.Text = "Administración";
+            this.mENUToolStripMenuItem.Visible = false;
             // 
             // inventarioToolStripMenuItem1
             // 
@@ -150,6 +151,7 @@ namespace Presentacion
             this.iNVENTARIOToolStripMenuItem.Name = "iNVENTARIOToolStripMenuItem";
             this.iNVENTARIOToolStripMenuItem.Size = new System.Drawing.Size(61, 25);
             this.iNVENTARIOToolStripMenuItem.Text = "Venta";
+            this.iNVENTARIOToolStripMenuItem.Visible = false;
             // 
             // registrarVentaToolStripMenuItem
             // 
@@ -164,6 +166,7 @@ namespace Presentacion
             this.sALIRToolStripMenuItem.Name = "sALIRToolStripMenuItem";
             this.sALIRToolStripMenuItem.Size = new System.Drawing.Size(53, 25);
             this.sALIRToolStripMenuItem.Text = "Salir";
+            this.sALIRToolStripMenuItem.Visible = false;
             this.sALIRToolStripMenuItem.Click += new System.EventHandler(this.sALIRToolStripMenuItem_Click);
             // 
             // panel1
