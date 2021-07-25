@@ -122,6 +122,7 @@ namespace Presentacion
             this.Name = "frmInventarioProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmProductos";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmInventarioProducto_FormClosed);
             this.Load += new System.EventHandler(this.frmProductos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.pnlTitulo.ResumeLayout(false);

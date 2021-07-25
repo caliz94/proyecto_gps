@@ -19,6 +19,23 @@ namespace Presentacion
             InitializeComponent();
         }
 
+        // SINGLETON
+        private static frmEliminar _Abrir;
+        // PROPIEDAD SOLO GET
+        public static frmEliminar Abrir
+        {
+            get
+            {
+                if (_Abrir == null)
+                    _Abrir = new frmEliminar();
+                return _Abrir;
+            }
+        }
+        private void frmEliminar_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _Abrir = null;
+        }
+
         public Producto_DAL proc = new Producto_DAL();
         public cConexion conex = new cConexion();
 
@@ -97,5 +114,6 @@ namespace Presentacion
             txb_cantidad.Text = dgvResultados.CurrentRow.Cells["Cantidad"].Value.ToString();
             //habilitarControles();
         }
+        
     }
 }

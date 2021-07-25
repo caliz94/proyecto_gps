@@ -186,6 +186,7 @@ namespace Presentacion
             this.Name = "frmIngresarProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventario_Productos";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmIngresarProductos_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

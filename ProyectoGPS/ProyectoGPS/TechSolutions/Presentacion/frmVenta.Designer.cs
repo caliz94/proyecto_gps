@@ -448,6 +448,7 @@ namespace Presentacion
             this.Name = "frmVenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FORMULARIO DE VENTAS";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmVenta_FormClosed);
             this.Load += new System.EventHandler(this.frmVenta_Load);
             this.pn_Bottom.ResumeLayout(false);
             this.pn_Bottom.PerformLayout();

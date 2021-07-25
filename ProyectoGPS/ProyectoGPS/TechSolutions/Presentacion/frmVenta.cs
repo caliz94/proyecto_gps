@@ -32,6 +32,24 @@ namespace Presentacion
         private cConexion conex = new cConexion();
 
 
+        // SINGLETON
+        private static frmVenta _Abrir;
+        // PROPIEDAD SOLO GET
+        public static frmVenta Abrir
+        {
+            get
+            {
+                if (_Abrir == null)
+                    _Abrir = new frmVenta();
+                return _Abrir;
+            }
+        }
+        private void frmVenta_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _Abrir = null;
+        }
+
+
         // Instanciar Objeto de la Capa de Datos
         private Producto_DAL _ProductoDAL = new Producto_DAL();
 

@@ -22,6 +22,26 @@ namespace Presentacion
         public cConexion conex = new cConexion();
         private Producto_DAL OProductoDAL = new Producto_DAL();
         public static string contraseña = "";
+
+        // SINGLETON
+        private static frmRegistro _Abrir;
+        // PROPIEDAD SOLO GET
+        public static frmRegistro Abrir
+        {
+            get
+            {
+                if (_Abrir == null)
+                    _Abrir = new frmRegistro();
+                    return _Abrir;  
+            }
+        }
+        private void frmRegistro_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _Abrir = null;
+        }
+
+
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -169,5 +189,7 @@ namespace Presentacion
             
             
         }
-        }
+
+        
+    }
     }

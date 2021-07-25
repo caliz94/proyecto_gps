@@ -286,6 +286,7 @@ namespace Presentacion
             this.Name = "frmEditar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EDITAR";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmEditar_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

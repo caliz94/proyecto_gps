@@ -19,6 +19,23 @@ namespace Presentacion
             InitializeComponent();
         }
 
+        // SINGLETON
+        private static frmIngresarProductos _Abrir;
+        // PROPIEDAD SOLO GET
+        public static frmIngresarProductos Abrir
+        {
+            get
+            {
+                if (_Abrir == null)
+                    _Abrir = new frmIngresarProductos();
+                return _Abrir;
+            }
+        }
+        private void frmIngresarProductos_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _Abrir = null;
+        }
+
         public void LimpiarControles()
         {
             txb_precio.Text = string.Empty;
@@ -135,5 +152,6 @@ namespace Presentacion
                 e.Handled = true;
             }
         }
+        
     }
 }

@@ -20,6 +20,24 @@ namespace Presentacion
             InitializeComponent();
         }
 
+        // SINGLETON
+        private static frmEditar _Abrir;
+        // PROPIEDAD SOLO GET
+        public static frmEditar Abrir
+        {
+            get
+            {
+                if (_Abrir == null)
+                    _Abrir = new frmEditar();
+                return _Abrir;
+            }
+        }
+        private void frmEditar_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _Abrir = null;
+        }
+
+
         public void limpiarcontrols()
         {
             txb_producto.Text = string.Empty;
@@ -190,5 +208,6 @@ namespace Presentacion
                 e.Handled = true;
             }
         }
+        
     }
 }

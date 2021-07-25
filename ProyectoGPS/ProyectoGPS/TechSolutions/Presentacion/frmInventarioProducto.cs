@@ -19,6 +19,24 @@ namespace Presentacion
             InitializeComponent();
         }
 
+        // SINGLETON
+        private static frmInventarioProducto _Abrir;
+        // PROPIEDAD SOLO GET
+        public static frmInventarioProducto Abrir
+        {
+            get
+            {
+                if (_Abrir == null)
+                    _Abrir = new frmInventarioProducto();
+                return _Abrir;
+            }
+        }
+        private void frmInventarioProducto_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _Abrir = null;
+        }
+
+
         cProducto lstProducto = new cProducto();
         
         public void Mostrar()
@@ -31,5 +49,7 @@ namespace Presentacion
         {
             Mostrar();
         }
+
+        
     }
 }

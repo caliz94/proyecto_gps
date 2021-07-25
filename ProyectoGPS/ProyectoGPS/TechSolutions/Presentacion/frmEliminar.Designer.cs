@@ -240,6 +240,7 @@ namespace Presentacion
             this.Name = "frmEliminar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmEliminar";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmEliminar_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dgvResultados)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

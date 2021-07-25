@@ -155,6 +155,7 @@
             this.Name = "frmRegistro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmRegistro";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmRegistro_FormClosed);
             this.Load += new System.EventHandler(this.frmRegistro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorP)).EndInit();
             this.ResumeLayout(false);
