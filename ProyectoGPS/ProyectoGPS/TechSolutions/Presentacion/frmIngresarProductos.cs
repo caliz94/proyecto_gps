@@ -19,7 +19,14 @@ namespace Presentacion
             InitializeComponent();
         }
 
-        // SINGLETON
+
+        // INSTANCIACIÓN DE LA CLASE cProducto DE LA CAPA DE LOGICA
+
+        cProducto cprod = new cProducto();
+
+
+        // IMPLEMENTACIÓN DEL PATRÓN DE SINGLETON
+
         private static frmIngresarProductos _Abrir;
         // PROPIEDAD SOLO GET
         public static frmIngresarProductos Abrir
@@ -36,6 +43,9 @@ namespace Presentacion
             _Abrir = null;
         }
 
+
+        // PROGRAMACIÓN DE LOS MÉTODOS
+
         public void LimpiarControles()
         {
             txb_precio.Text = string.Empty;
@@ -45,7 +55,9 @@ namespace Presentacion
             txb_CodProducto.Text = string.Empty;
         }
 
-        cProducto cprod = new cProducto();
+
+        // PROGRAMACIÓN DE LOS CONTROLES Y EVENTOS
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
@@ -53,21 +65,18 @@ namespace Presentacion
                 if (txb_marca.Text!=string.Empty)
                 {
                     cprod.Insertar(txb_CodProducto.Text, txb_producto.Text, Convert.ToInt32(txb_cantidad.Text), Convert.ToDecimal(txb_precio.Text), txb_marca.Text);
-
                     MessageBox.Show("Producto Guardado Satisfactoriamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                     LimpiarControles();
                 }
-                
             }
             catch (Exception)
             {
-
                 MessageBox.Show("Campos Obligatorios");
             }
-
-            
         }
+
+
+        // VALIDACIONES
 
         private void txb_cantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -75,7 +84,6 @@ namespace Presentacion
             {
                 e.Handled = false;
             }
-           
             if (Char.IsLetter(e.KeyChar))
             {
                 e.Handled = true;
@@ -92,15 +100,6 @@ namespace Presentacion
             {
                 e.Handled = true;
             }
-            //REFERENCIA
-            //var regex = @"[0-9]+[.]{1}[0-9]{2}$";
-
-            //if (Regex.IsMatch(txb_cantidad.Text, regex))
-            //{
-            //    e.Handled = true;
-            //}
-
-
         }
 
         private void txb_precio_KeyPress(object sender, KeyPressEventArgs e)
@@ -152,6 +151,5 @@ namespace Presentacion
                 e.Handled = true;
             }
         }
-        
     }
 }

@@ -18,23 +18,34 @@ namespace Presentacion
         {
             InitializeComponent();
         }
+        
+        
+        // INSTANCIACIÓN DE CONEXIÓN A LA BASE DE DATOS
 
-
-        // Declaración de Variables Globales
-        public static string nombreProducto = "", cantidad = "", precioUnitario = "", subTotal = "", descuento = "", iva = "", total = "", idProducto = "";
-        public static int i = 500;
-        public static int x = 0;
-        public static string[] _idproducto = new string[i];
-        public static string[] _cantidad = new string[i];
-
-
-        // Instanciar Conexión a la Base de Datos
         private cConexion conex = new cConexion();
 
 
-        // SINGLETON
+        // INSTANCIAR CLASE Producto_DAL DE CAPA DE DATOS
+
+        private Producto_DAL _ProductoDAL = new Producto_DAL();
+
+
+        // DECLARACIÓN DE VARIABLES GLOBALES
+
+        public static string nombreProducto = "", cantidad = "", precioUnitario = "", subTotal = "", descuento = "", iva = "", total = "", idProducto = "";
+        public static int i = 500, x = 0;
+
+
+        // DECLARACIÓN DE ARREGLOS 
+
+        public static string[] _idproducto = new string[i];
+        public static string[] _cantidad = new string[i];
+        
+
+        // IMPLEMENTACIÓN DE PATRON DE SINGLETON
+
         private static frmVenta _Abrir;
-        // PROPIEDAD SOLO GET
+        // Propiedad solo get
         public static frmVenta Abrir
         {
             get
@@ -50,16 +61,11 @@ namespace Presentacion
         }
 
 
-        // Instanciar Objeto de la Capa de Datos
-        private Producto_DAL _ProductoDAL = new Producto_DAL();
-
-
-        // Inicialización del Formulario y Controles
+        // PROGRAMACIÓN DE LOS CONTROLES Y EVENTOS
         private void frmVenta_Load(object sender, EventArgs e)
         {
             dateTimePicker1.Value = DateTime.Now;
             dateTimePicker1.Format = DateTimePickerFormat.Short;
-
             dgvCompra.Columns.Add("IdProducto", "IdProducto");
             dgvCompra.Columns.Add("NombreProducto", "Nombre del Producto");
             dgvCompra.Columns.Add("Cantidad", "Cantidad");
@@ -68,7 +74,6 @@ namespace Presentacion
             dgvCompra.Columns.Add("Descuento", "Descuento");
             dgvCompra.Columns.Add("IVA", "I.V.A.");
             dgvCompra.Columns.Add("Total", "Total");
-
             txb_Cantidad.Text = "0";
             txb_Subtotal.Text = "0";
             txb_TotDescuento.Text = "0";
@@ -76,22 +81,17 @@ namespace Presentacion
             txb_TotCompra.Text = "0";
         }
 
-
-        // Programación de los componentes
         private void txb_Cantidad_KeyUp(object sender, KeyEventArgs e)
         {
             txb_IVA.Enabled = true;
-            //txb_IVA.ReadOnly = false;
             txb_Descuento.Enabled = true;
             txb_Descuento.ReadOnly = false;
         }
-
 
         private void btnDescargar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
 
         private void btnCargar_Click(object sender, EventArgs e)
         {
@@ -119,25 +119,17 @@ namespace Presentacion
                         //Total
                         total = ((Convert.ToDouble(subTotal) - Convert.ToDouble(descuento)) + Convert.ToDouble(iva)).ToString()
                     );
-
                 // Se almacenan los datos en el arreglo para grabar la venta
                 _idproducto[x] = idProducto;
-
                 _cantidad[x] = Convert.ToString(cantidad);
-
                 // Se sumarizan los subtotales y se envian los valores
                 txb_Subtotal.Text = ((Convert.ToDouble(txb_Subtotal.Text)) + (Convert.ToDouble(subTotal))).ToString();
-
                 txb_TotDescuento.Text = ((Convert.ToDouble(txb_TotDescuento.Text)) + (Convert.ToDouble(descuento))).ToString();
-
                 txb_TotIVA.Text = ((Convert.ToDouble(txb_TotIVA.Text)) + (Convert.ToDouble(iva))).ToString();
-
                 txb_TotCompra.Text = ((Convert.ToDouble(txb_TotCompra.Text)) + (Convert.ToDouble(total))).ToString();
-
                 txb_Cantidad.Text = "0";
                 txb_Descuento.Text = "0";
                 txb_IVA.Text = "15";
-
                 // Se incrementa la variable para capturar la cantidad de articulos
                 x = x + 1;
             }
@@ -145,10 +137,8 @@ namespace Presentacion
             {
                 // Mensaje de validación de cantidad de producto
                 MessageBox.Show("Favor digite la cantidad del Producto","Información",MessageBoxButtons.OK,MessageBoxIcon.Information);
-            }
-           
+            }          
         }
-
 
         private void txb_Producto_KeyUp(object sender, KeyEventArgs e)
         {
@@ -170,12 +160,10 @@ namespace Presentacion
             conex.CerrarConex();
         }
 
-
         private void btnPagar_Click(object sender, EventArgs e)
         {
             try
             {
-
                 if (Convert.ToInt32(txb_TotCompra.Text) > 0)
                 {
                     for (int fila = 0; fila < x; fila++)
@@ -193,25 +181,20 @@ namespace Presentacion
                     txb_IVA.Clear();
                     txb_TotCompra.Clear();
                     txb_Subtotal.Clear();
-                    txb_TotDescuento.Clear();
-                   
+                    txb_TotDescuento.Clear();                   
                     txb_Producto.Clear();
                     lblMensaje.Text = "Compra Realizada Sastifactoriamente";
-                }
-                
+                }                
                 else
                 {
                     lblMensaje.Text = "Favor cargue los productos a comprar.";
                     lblMensaje.BackColor = Color.Red;
-                }
-               
+                } 
             }
             catch (Exception)
             {
-
                 MessageBox.Show("Ocurrio Un Problema");
-            }
-          
+            }         
         }
     }
 }

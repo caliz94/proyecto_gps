@@ -18,21 +18,16 @@ namespace Presentacion
         {
             InitializeComponent();
         }
+
+        // INSTANCIACIÓN DE LA CONEXIÓN
+
         cConexion conex = new cConexion();
 
-        public static string rol = "";
+        //public static string rol = "";
 
-        private void btnIngresar_Click(object sender, EventArgs e)
-        {
-            if (txb_usuario.Text == string.Empty)
-                errorP.SetError(txb_usuario, "Debe de Ingresar el Usuario");
-            else if (txb_contraseña.Text == string.Empty)
-                errorP.SetError(txb_contraseña, "Debe Ingresar la Contraseña.");
-            else
-            {
-                login();
-            }
-        }
+
+        // PROGRAMACIÓN DE LOS MÉTODOS
+
         public void login()
         {
             try
@@ -47,31 +42,39 @@ namespace Presentacion
                 cmd.Parameters.AddWithValue("@contraseña", txb_contraseña.Text);
                 leer = cmd.ExecuteReader();
 
-
                 if (leer.Read())
                 {
                     lbl_login.Text = "";
                     menuStrip1.Visible = true;
                     panel1.Visible = false;
-
                 }
                 else
                 {
                     lbl_login.Visible = true;
                     lbl_login.Text = "USUARIO O CONTRASEÑA INVÁLIDOS";
                 }
-
-
                 conex.CerrarConex();
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show("Ocurrio un Error");
             }
+        }
 
+        
+        // PROGRAMACIÓN DE LOS CONTROLES Y EVENTOS
 
-
+        private void btnIngresar_Click(object sender, EventArgs e)
+        {
+            // Validación de ingreso de los textbox de usuario y contraseña
+            if (txb_usuario.Text == string.Empty)
+                errorP.SetError(txb_usuario, "Debe de Ingresar el Usuario");
+            else if (txb_contraseña.Text == string.Empty)
+                errorP.SetError(txb_contraseña, "Debe Ingresar la Contraseña.");
+            else
+            {
+                login();
+            }
         }
 
         private void sALIRToolStripMenuItem_Click(object sender, EventArgs e)

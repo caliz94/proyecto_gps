@@ -19,8 +19,20 @@ namespace Presentacion
         {
             InitializeComponent();
         }
+        
+        
+        // INSTANCIACIÓN DE LA CONEXIÓN
 
-        // SINGLETON
+        public cConexion conex = new cConexion();
+
+
+        // INSTACIACIÓN DE LA CLASE CPRODUCTOS DE LA CAPA DE LOGICA
+
+        cProducto prod = new cProducto();
+        
+
+        // IMPLEMENTACIÓN DEL SINGLENTON
+
         private static frmEditar _Abrir;
         // PROPIEDAD SOLO GET
         public static frmEditar Abrir
@@ -32,11 +44,9 @@ namespace Presentacion
                 return _Abrir;
             }
         }
-        private void frmEditar_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            _Abrir = null;
-        }
 
+
+        // PROGRAMACIÓN DE LOS METODOS
 
         public void limpiarcontrols()
         {
@@ -46,6 +56,7 @@ namespace Presentacion
             txb_marca.Text = string.Empty;
             txb_CodProducto.Text = string.Empty;
         }
+
         public void habilitarControles()
         {
             txb_producto.Enabled = true;
@@ -58,52 +69,13 @@ namespace Presentacion
             txb_marca.ReadOnly = false;
         }
 
-        public cConexion conex = new cConexion();
-
-
-        public void ActualizarGrid()
-        {
-           
-        }
-
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-            DataTable tabla = new DataTable();
-
-            string sql = "select * from Producto where NombreProducto like '%'+@NombreProducto+'%'";
-
-            SqlCommand cmd = new SqlCommand(sql, conex.Cadena);
-            cmd.Parameters.AddWithValue("@NombreProducto", textBox1.Text);
-
-            if (textBox1.Text.Trim() == string.Empty)
-            {
-                errorProvider1.SetError(textBox1, "no se permite campo vacio");
-                textBox1.Text = "";
-            }
-
-            else
-            {
-                errorProvider1.SetError(textBox1, "");
-                SqlDataReader leer;
-                conex.AbrirConex();
-                leer = cmd.ExecuteReader();
-                tabla.Load(leer);
-                conex.CerrarConex();
-                dataGridView1.DataSource = tabla;
-                dataGridView1.Columns["IdProducto"].Visible = false;
-                dataGridView1.Columns["CodProducto"].Visible = false;
-                textBox1.Text = "";
-
-            }
-        }
-        cProducto prod = new cProducto();
         public void edit()
         {
             try
             {
-                if (txb_producto.Text!=string.Empty)
+                if (txb_producto.Text != string.Empty)
                 {
-                    if (txb_marca.Text!=string.Empty)
+                    if (txb_marca.Text != string.Empty)
                     {
                         prod.Editar(txb_producto.Text, Convert.ToInt32(txb_cantidad.Text), Convert.ToDecimal(txb_precio.Text), txb_marca.Text, Convert.ToInt32(txb_IdProducto.Text));
                         MessageBox.Show("Producto Actualizado");
@@ -112,7 +84,7 @@ namespace Presentacion
                         lblCodProducto.Visible = false;
                         limpiarcontrols();
                     }
-                     else
+                    else
                     {
                         MessageBox.Show("Campos Obligatorios");
                     }
@@ -127,9 +99,41 @@ namespace Presentacion
 
                 MessageBox.Show("Campos Obligatorios");
             }
-
         }
 
+
+        //PROGRAMACIÓN DE LOS CONTROLES Y EVENTOS
+        private void frmEditar_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _Abrir = null;
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            DataTable tabla = new DataTable();
+            string sql = "select * from Producto where NombreProducto like '%'+@NombreProducto+'%'";
+            SqlCommand cmd = new SqlCommand(sql, conex.Cadena);
+            cmd.Parameters.AddWithValue("@NombreProducto", textBox1.Text);
+            if (textBox1.Text.Trim() == string.Empty)
+            {
+                errorProvider1.SetError(textBox1, "no se permite campo vacio");
+                textBox1.Text = "";
+            }
+            else
+            {
+                errorProvider1.SetError(textBox1, "");
+                SqlDataReader leer;
+                conex.AbrirConex();
+                leer = cmd.ExecuteReader();
+                tabla.Load(leer);
+                conex.CerrarConex();
+                dataGridView1.DataSource = tabla;
+                dataGridView1.Columns["IdProducto"].Visible = false;
+                dataGridView1.Columns["CodProducto"].Visible = false;
+                textBox1.Text = "";
+            }
+        }
+        
         private void btnModificar_Click(object sender, EventArgs e)
         {
             edit();         
@@ -157,14 +161,16 @@ namespace Presentacion
             habilitarControles();
         }
 
+
+        // VALIDACIONES
+
         private void txb_cantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            //Validaciones del textbox cantidad
             if (Char.IsNumber(e.KeyChar))
             {
                 e.Handled = false;
             }
-
             if (Char.IsLetter(e.KeyChar))
             {
                 e.Handled = true;

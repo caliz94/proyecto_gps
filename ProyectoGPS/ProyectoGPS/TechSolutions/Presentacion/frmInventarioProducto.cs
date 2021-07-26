@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LOGICA;
-using DATOS;
 
 namespace Presentacion
 {
@@ -19,9 +18,16 @@ namespace Presentacion
             InitializeComponent();
         }
 
-        // SINGLETON
+
+        // INSTANCIACIÓN DE LA CLASE cProducto DE LA CAPA LOGICA
+
+        cProducto lstProducto = new cProducto();
+
+
+        // IMPLEMENTACIÓN DEL PATRON DE SINGLETON
+
         private static frmInventarioProducto _Abrir;
-        // PROPIEDAD SOLO GET
+        // Propiedad solo get
         public static frmInventarioProducto Abrir
         {
             get
@@ -36,14 +42,16 @@ namespace Presentacion
             _Abrir = null;
         }
 
-
-        cProducto lstProducto = new cProducto();
+        
+        // PROGRAMACIÓN DE LOS MÉTODOS
         
         public void Mostrar()
         {
             dataGridView1.DataSource = lstProducto.tbMostrarInventario();
             dataGridView1.Columns["IdProducto"].Visible = false;
         }
+
+        // PROGRAMACIÓN DEL EVENTO LOAD
 
         private void frmProductos_Load(object sender, EventArgs e)
         {

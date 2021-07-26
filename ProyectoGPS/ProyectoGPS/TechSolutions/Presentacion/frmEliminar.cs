@@ -19,7 +19,17 @@ namespace Presentacion
             InitializeComponent();
         }
 
-        // SINGLETON
+
+        // INSTANCIACIÓN DE LA CONEXIÓN
+
+        public cConexion conex = new cConexion();
+
+
+        // INSTANCIACIÓN DE LA CLASE Producto_DAL DE LA CAPA DATOS
+        public Producto_DAL proc = new Producto_DAL();
+
+        // IMPLEMENTACIÓN DEL PATRON SINGLETON
+
         private static frmEliminar _Abrir;
         // PROPIEDAD SOLO GET
         public static frmEliminar Abrir
@@ -31,14 +41,15 @@ namespace Presentacion
                 return _Abrir;
             }
         }
+
+
+        // PROGRAMACIÓN DE LOS CONTROLES Y EVENTOS
+
         private void frmEliminar_FormClosed(object sender, FormClosedEventArgs e)
         {
             _Abrir = null;
         }
-
-        public Producto_DAL proc = new Producto_DAL();
-        public cConexion conex = new cConexion();
-
+       
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             DataTable tabla = new DataTable();
@@ -53,7 +64,6 @@ namespace Presentacion
                 errorProvider1.SetError(txb_Buscar, "no se permite campo vacio");
                 txb_Buscar.Text = "";
             }
-
             else
             {
                 errorProvider1.SetError(txb_Buscar, "");
@@ -66,7 +76,6 @@ namespace Presentacion
                 dgvResultados.Columns["IdProducto"].Visible = false;
                 dgvResultados.Columns["CodProducto"].Visible = false;
                 txb_Buscar.Text = "";
-
             }
         }
 
@@ -84,7 +93,6 @@ namespace Presentacion
                         lblMensaje.ForeColor = Color.Blue;
                         lblMensaje.Text = "REGISTRO ELIMINADO CORRECTAMENTE";
                     }
-
                 }
                 else
                 {
@@ -99,8 +107,6 @@ namespace Presentacion
 
                 MessageBox.Show("Selecione el producto a eliminar");
             }
-            
-
         }
 
         private void dgvResultados_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -112,8 +118,6 @@ namespace Presentacion
             txbIdProducto.Text = dgvResultados.CurrentRow.Cells["IdProducto"].Value.ToString();
             txb_producto.Text = dgvResultados.CurrentRow.Cells["NombreProducto"].Value.ToString();
             txb_cantidad.Text = dgvResultados.CurrentRow.Cells["Cantidad"].Value.ToString();
-            //habilitarControles();
         }
-        
     }
 }
