@@ -26,7 +26,7 @@ namespace Presentacion
         public cConexion conex = new cConexion();
 
 
-        // INSTANCIACIÓN DE LA CLASE Producto_DAL DE LA CAPA DATOS
+        // INSTANCIACIÓN DE LA CLASE Producto_DAL
 
         private Producto_DAL OProductoDAL = new Producto_DAL();
       
@@ -73,12 +73,12 @@ namespace Presentacion
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            // Validaciones con expresiones regulares
-            var todosletras = @"\b(\w*[a-zA-Z0-9]\w.)";
-            var numeros = @"\b(\w*[0-9]\w.)";
-            var mayusculas = @"\b(\w*[A-Z]\w.)";
-            var minusculas = @"\b(\w*[a-z]\w.)";
-            var simbolos = @"\b(\w*[!@#$%?]\w.)";
+            // Validaciones con expresiones regulares   
+            string todosletras = @"\b(\w*[a-zA-Z0-9]\w.)";
+            string numeros = @"[0-9]";
+            string mayusculas = @"[A-Z]";
+            string minusculas = @"[a-z]";
+            string simbolos = "[!\"#\\$%&'()*+,-./:;=?@\\[\\]^_`{|}~]";
 
             if (txtUsuario.Text.Trim() == string.Empty)
             {
@@ -118,36 +118,44 @@ namespace Presentacion
                                 }
                                 else
                                 {
-                                    errorP.SetError(txt_Contraseña, "ingrese un simbolo (!@#$%?)");
+                                    errorP.SetError(txt_Contraseña, "Debe ingresar al menos un simbolo.");
                                 }
                             }
                             else
                             {
-                                errorP.SetError(txt_Contraseña, "Ingrese letras minusculas");
+                                errorP.SetError(txt_Contraseña, "Debe Ingresar letras minusculas.");
                             }
                         }
                         else
                         {
-                            errorP.SetError(txt_Contraseña, "ingrese letras mayusculas");
+                            errorP.SetError(txt_Contraseña, "Debe ingresar letras mayusculas");
                         }
                     }
                     else
                     {
-                        errorP.SetError(txt_Contraseña, "ingrese numeros,");
+                        errorP.SetError(txt_Contraseña, "Debe ingresar al menos un numero.");
                     }
                 }
                 else
                 {
-                    errorP.SetError(txt_Contraseña, "La contraseña no cumple con los parametros necesarios");
+                    errorP.SetError(txt_Contraseña, "La contraseña no cumple con los parametros necesarios.");
                 }
             }
             else
             {
-                errorP.SetError(txt_Contraseña, "la contraseña debe ser de 8 caracteres");
+                errorP.SetError(txt_Contraseña, "La contraseña debe ser mayor de 8 caracteres.");
             }             
         }
 
         private void txt_Contraseña_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsWhiteSpace(e.KeyChar))
             {

@@ -95,7 +95,7 @@ namespace Presentacion
             this.eliminarProductoToolStripMenuItem1,
             this.listadoDeProductosDelInventarioToolStripMenuItem});
             this.inventarioToolStripMenuItem1.Name = "inventarioToolStripMenuItem1";
-            this.inventarioToolStripMenuItem1.Size = new System.Drawing.Size(180, 26);
+            this.inventarioToolStripMenuItem1.Size = new System.Drawing.Size(150, 26);
             this.inventarioToolStripMenuItem1.Text = "Inventario";
             // 
             // ingresarNuevoProductoToolStripMenuItem
@@ -131,7 +131,7 @@ namespace Presentacion
             this.usuariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registrarUsuarioToolStripMenuItem});
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             // 
             // registrarUsuarioToolStripMenuItem
@@ -244,12 +244,12 @@ namespace Presentacion
             this.txb_usuario.Size = new System.Drawing.Size(143, 20);
             this.txb_usuario.TabIndex = 1;
             this.txb_usuario.TextChanged += new System.EventHandler(this.txb_usuario_TextChanged);
+            this.txb_usuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txb_usuario_KeyPress);
             // 
             // txb_contraseña
             // 
             this.txb_contraseña.Location = new System.Drawing.Point(211, 268);
             this.txb_contraseña.Name = "txb_contraseña";
-            this.txb_contraseña.PasswordChar = '*';
             this.txb_contraseña.Size = new System.Drawing.Size(143, 20);
             this.txb_contraseña.TabIndex = 2;
             this.txb_contraseña.TextChanged += new System.EventHandler(this.txb_contraseña_TextChanged);

@@ -70,7 +70,10 @@ namespace Presentacion
             if (txb_usuario.Text == string.Empty)
                 errorP.SetError(txb_usuario, "Debe de Ingresar el Usuario");
             else if (txb_contraseña.Text == string.Empty)
+            {
+                errorP.SetError(txb_usuario, "");
                 errorP.SetError(txb_contraseña, "Debe Ingresar la Contraseña.");
+            }
             else
             {
                 login();
@@ -143,6 +146,14 @@ namespace Presentacion
             frmRegistro AbrirForm = frmRegistro.Abrir;
             AbrirForm.MdiParent = frm_contenedor.ActiveForm;
             AbrirForm.Show();
+        }
+
+        private void txb_usuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
