@@ -422,6 +422,7 @@ namespace Presentacion
             this.dgvCompra.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCompra.Location = new System.Drawing.Point(0, 0);
             this.dgvCompra.Name = "dgvCompra";
+            this.dgvCompra.ReadOnly = true;
             this.dgvCompra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCompra.Size = new System.Drawing.Size(1215, 242);
             this.dgvCompra.TabIndex = 0;

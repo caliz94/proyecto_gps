@@ -101,37 +101,51 @@ namespace Presentacion
                 errorP.SetError(txb_Cliente, "Debe Ingresar la cantidad de producto");
             else if (Convert.ToInt32(txb_Cantidad.Text) >= 1)
             {
-                dgvCompra.Rows.Add
-                    (
-                        idProducto = dgvCarrito.CurrentRow.Cells["IdProducto"].Value.ToString(),
-                        //Nombre Producto
-                        nombreProducto = dgvCarrito.CurrentRow.Cells["NombreProducto"].Value.ToString(),
-                        //Cantidad
-                         cantidad = txb_Cantidad.Text.ToString(),
-                        //Precio Unitario
-                        precioUnitario = dgvCarrito.CurrentRow.Cells["PrecioUnitario"].Value.ToString(),
-                        //Sub-Total
-                        subTotal = ((Convert.ToInt32(cantidad)) * (Convert.ToDouble(precioUnitario))).ToString(),
-                        //Descuento
-                        descuento = (Convert.ToDouble(subTotal) * (Convert.ToDouble(txb_Descuento.Text)/100)).ToString(),
-                        //IVA
-                        iva = ((Convert.ToDouble(subTotal) - Convert.ToDouble(descuento ))*(Convert.ToInt32(txb_IVA.Text))/100).ToString(),
-                        //Total
-                        total = ((Convert.ToDouble(subTotal) - Convert.ToDouble(descuento)) + Convert.ToDouble(iva)).ToString()
-                    );
-                // Se almacenan los datos en el arreglo para grabar la venta
-                _idproducto[x] = idProducto;
-                _cantidad[x] = Convert.ToString(cantidad);
-                // Se sumarizan los subtotales y se envian los valores
-                txb_Subtotal.Text = ((Convert.ToDouble(txb_Subtotal.Text)) + (Convert.ToDouble(subTotal))).ToString();
-                txb_TotDescuento.Text = ((Convert.ToDouble(txb_TotDescuento.Text)) + (Convert.ToDouble(descuento))).ToString();
-                txb_TotIVA.Text = ((Convert.ToDouble(txb_TotIVA.Text)) + (Convert.ToDouble(iva))).ToString();
-                txb_TotCompra.Text = ((Convert.ToDouble(txb_TotCompra.Text)) + (Convert.ToDouble(total))).ToString();
-                txb_Cantidad.Text = "0";
-                txb_Descuento.Text = "0";
-                txb_IVA.Text = "15";
-                // Se incrementa la variable para capturar la cantidad de articulos
-                x = x + 1;
+                try
+                {
+                    
+                    
+                       
+                        dgvCompra.Rows.Add
+                        (
+                            idProducto = dgvCarrito.CurrentRow.Cells["IdProducto"].Value.ToString(),
+                            //Nombre Producto
+                            nombreProducto = dgvCarrito.CurrentRow.Cells["NombreProducto"].Value.ToString(),
+                             //Cantidad
+                             cantidad = txb_Cantidad.Text.ToString(),
+                            //Precio Unitario
+                            precioUnitario = dgvCarrito.CurrentRow.Cells["PrecioUnitario"].Value.ToString(),
+                            //Sub-Total
+                            subTotal = ((Convert.ToInt32(cantidad)) * (Convert.ToDouble(precioUnitario))).ToString(),
+                            //Descuento
+                            descuento = (Convert.ToDouble(subTotal) * (Convert.ToDouble(txb_Descuento.Text) / 100)).ToString(),
+                            //IVA
+                            iva = ((Convert.ToDouble(subTotal) - Convert.ToDouble(descuento)) * (Convert.ToInt32(txb_IVA.Text)) /   100).ToString(),
+                            //Total
+                            total = ((Convert.ToDouble(subTotal) - Convert.ToDouble(descuento)) + Convert.ToDouble(iva)).ToString()
+                            );
+                    
+                        
+                    
+                    // Se almacenan los datos en el arreglo para grabar la venta
+                    _idproducto[x] = idProducto;
+                    _cantidad[x] = Convert.ToString(cantidad);
+                    // Se sumarizan los subtotales y se envian los valores
+                    txb_Subtotal.Text = ((Convert.ToDouble(txb_Subtotal.Text)) + (Convert.ToDouble(subTotal))).ToString();
+                    txb_TotDescuento.Text = ((Convert.ToDouble(txb_TotDescuento.Text)) + (Convert.ToDouble(descuento))).ToString();
+                    txb_TotIVA.Text = ((Convert.ToDouble(txb_TotIVA.Text)) + (Convert.ToDouble(iva))).ToString();
+                    txb_TotCompra.Text = ((Convert.ToDouble(txb_TotCompra.Text)) + (Convert.ToDouble(total))).ToString();
+                    txb_Cantidad.Text = "0";
+                    txb_Descuento.Text = "0";
+                    txb_IVA.Text = "15";
+                    // Se incrementa la variable para capturar la cantidad de articulos
+                    x = x + 1;
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("Selecione un producto para cargar en el carrito");
+                }
             }
            else
             {
