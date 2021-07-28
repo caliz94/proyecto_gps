@@ -103,29 +103,24 @@ namespace Presentacion
             {
                 try
                 {
-                    
-                    
-                       
-                        dgvCompra.Rows.Add
-                        (
-                            idProducto = dgvCarrito.CurrentRow.Cells["IdProducto"].Value.ToString(),
-                            //Nombre Producto
-                            nombreProducto = dgvCarrito.CurrentRow.Cells["NombreProducto"].Value.ToString(),
-                             //Cantidad
-                             cantidad = txb_Cantidad.Text.ToString(),
-                            //Precio Unitario
-                            precioUnitario = dgvCarrito.CurrentRow.Cells["PrecioUnitario"].Value.ToString(),
-                            //Sub-Total
-                            subTotal = ((Convert.ToInt32(cantidad)) * (Convert.ToDouble(precioUnitario))).ToString(),
-                            //Descuento
-                            descuento = (Convert.ToDouble(subTotal) * (Convert.ToDouble(txb_Descuento.Text) / 100)).ToString(),
-                            //IVA
-                            iva = ((Convert.ToDouble(subTotal) - Convert.ToDouble(descuento)) * (Convert.ToInt32(txb_IVA.Text)) /   100).ToString(),
-                            //Total
-                            total = ((Convert.ToDouble(subTotal) - Convert.ToDouble(descuento)) + Convert.ToDouble(iva)).ToString()
-                            );
-                    
-                        
+                    dgvCompra.Rows.Add
+                    (
+                        idProducto = dgvCarrito.CurrentRow.Cells["IdProducto"].Value.ToString(),
+                        //Nombre Producto
+                        nombreProducto = dgvCarrito.CurrentRow.Cells["NombreProducto"].Value.ToString(),
+                         //Cantidad
+                         cantidad = txb_Cantidad.Text.ToString(),
+                        //Precio Unitario
+                        precioUnitario = dgvCarrito.CurrentRow.Cells["PrecioUnitario"].Value.ToString(),
+                        //Sub-Total
+                        subTotal = ((Convert.ToInt32(cantidad)) * (Convert.ToDouble(precioUnitario))).ToString(),
+                        //Descuento
+                        descuento = (Convert.ToDouble(subTotal) * (Convert.ToDouble(txb_Descuento.Text) / 100)).ToString(),
+                        //IVA
+                        iva = ((Convert.ToDouble(subTotal) - Convert.ToDouble(descuento)) * (Convert.ToInt32(txb_IVA.Text)) / 100).ToString(),
+                        //Total
+                        total = ((Convert.ToDouble(subTotal) - Convert.ToDouble(descuento)) + Convert.ToDouble(iva)).ToString()
+                    ) ;
                     
                     // Se almacenan los datos en el arreglo para grabar la venta
                     _idproducto[x] = idProducto;
