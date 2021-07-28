@@ -74,7 +74,7 @@ namespace Presentacion
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             // Validaciones con expresiones regulares   
-            string todosletras = @"\b(\w*[a-zA-Z0-9]\w.)";
+            //string todosletras = @"\b(\w*[a-zA-Z0-9]\w.)";
             string numeros = @"[0-9]";
             string mayusculas = @"[A-Z]";
             string minusculas = @"[a-z]";
@@ -92,8 +92,8 @@ namespace Presentacion
             else if (txt_Contraseña.Text.Length >= 8)
             {
                 errorP.SetError(cbox_Roles, "");
-                if (Regex.IsMatch(txt_Contraseña.Text, todosletras))
-                {
+                //if (Regex.IsMatch(txt_Contraseña.Text, todosletras))
+                //{
                     if (Regex.IsMatch(txt_Contraseña.Text, numeros))
                     {
                         if (Regex.IsMatch(txt_Contraseña.Text, mayusculas))
@@ -135,11 +135,11 @@ namespace Presentacion
                     {
                         errorP.SetError(txt_Contraseña, "Debe ingresar al menos un numero.");
                     }
-                }
-                else
-                {
-                    errorP.SetError(txt_Contraseña, "La contraseña no cumple con los parametros necesarios.");
-                }
+                //}
+                //else
+                //{
+                //    errorP.SetError(txt_Contraseña, "La contraseña no cumple con los parametros necesarios.");
+                //}
             }
             else
             {
