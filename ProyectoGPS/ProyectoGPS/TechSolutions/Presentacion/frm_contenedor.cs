@@ -36,7 +36,7 @@ namespace Presentacion
                 SqlDataReader leer;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conex.AbrirConex();
-                cmd.CommandText = "Sp_login";
+                cmd.CommandText = "sp_login";
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@usuario", txb_usuario.Text);
                 cmd.Parameters.AddWithValue("@contraseña", txb_contraseña.Text);
@@ -154,6 +154,13 @@ namespace Presentacion
             {
                 e.Handled = true;
             }
+        }
+
+        private void reporteDeVentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRptVentas AbrirForm = frmRptVentas.Abrir;
+            AbrirForm.MdiParent = frm_contenedor.ActiveForm;
+            AbrirForm.Show();
         }
     }
 }
